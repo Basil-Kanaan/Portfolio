@@ -1,24 +1,36 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {Box, Button, Typography} from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import suit0 from '../assets/images/suit0.png';
+import suit1 from '../assets/images/suit1.png';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+
+const images = [suit1, suit0];
+
+const texts = [
+    "Hi, I'm Basil.",
+    "Grad from UofT.",
+    "Software Engineer."
+];
 
 const HeroSection = () => {
-    const texts = useMemo(
-        () => ["Hi, I'm Basil.", "Grad from UofT.", "Highest Distinction.", "Software Engineer."],
-        []
-    );
-
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            const nextIndex = (currentIndex + 1) % texts.length;
-            setCurrentIndex(nextIndex);
-        }, 8000);
+        const textIntervalId = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        }, 5000);
 
-        return () => clearInterval(intervalId);
-    }, [currentIndex, texts]);
+        const imageIntervalId = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 5000);
 
+        return () => {
+            clearInterval(textIntervalId);
+            clearInterval(imageIntervalId);
+        };
+    }, []);
 
     useEffect(() => {
         const targetText = texts[currentIndex];
@@ -31,20 +43,37 @@ const HeroSection = () => {
             if (charIndex > targetText.length) {
                 clearInterval(typingInterval);
             }
-        }, 100); // Type one character every 100 milliseconds
+        }, 100);
 
         return () => clearInterval(typingInterval);
-    }, [currentIndex, texts]);
+    }, [currentIndex]);
+
+    const scrollToNextSection = () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth',
+        });
+    };
 
     return (
         <Box
             sx={{
                 position: 'relative',
                 height: '100vh',
-                backgroundImage: 'url(path_to_background_image.jpg)',
-                backgroundSize: 'cover',
             }}
         >
+            <img
+                src={images[currentImageIndex]}
+                alt="Overlay"
+                height="95%"
+                style={{
+                    position: 'absolute',
+                    bottom:0,
+                    left: "10%",
+                    zIndex: 0,
+                }}
+            />
+
             <Box
                 sx={{
                     position: 'absolute',
@@ -55,8 +84,6 @@ const HeroSection = () => {
                     background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 50%)',
                 }}
             />
-            {/* Your image overlay */}
-            <img src="path_to_overlay_image.png" alt="Overlay"/>
             <Box
                 sx={{
                     position: 'absolute',
@@ -64,14 +91,48 @@ const HeroSection = () => {
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                     textAlign: 'center',
+                    textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
                 }}
             >
-                <Typography variant="h3" sx={{color: '#ffffff'}}>
+                <Typography variant="h3" sx={{ color: '#ffffff' }}>
                     {currentText}
                 </Typography>
+            </Box>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: '60%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    textAlign: 'center',
+                }}
+            >
                 <Button variant="contained" color="primary" href="mailto:basil.kanaan@mail.utoronto.ca">
                     Email Me
                 </Button>
+            </Box>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    textAlign: 'center',
+                }}
+            >
+                <KeyboardDoubleArrowDownIcon
+                    sx={{
+                        color: '#ffffff',
+                        fontSize: '5rem',
+                        marginTop: 20,
+                        cursor: 'pointer',
+                        transition: 'transform 0.3s, font-size 0.3s',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                        },
+                    }}
+                    onClick={scrollToNextSection}
+                />
             </Box>
         </Box>
     );
