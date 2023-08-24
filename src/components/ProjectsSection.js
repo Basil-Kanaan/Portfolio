@@ -12,7 +12,7 @@ const projectData = [
     {
         title: 'ApexNode',
         description:
-            'A company specializing in outsourcing services like app and website development...',
+            'A company specializing in outsourcing services like app and website development.',
         link: 'https://bb0lt.github.io/ApexNode-public',
         image: "", // Import the image
     },
@@ -22,8 +22,8 @@ const projectData = [
 const ProjectsSection = () => {
     return (
         <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4 }}>
-                My Projects
+            <Typography variant="h4" align="center" sx={{ mb: 4, fontSize: "3rem" }}>
+                Projects
             </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                 {projectData.map((project, index) => (
@@ -48,7 +48,6 @@ const ProjectsSection = () => {
                             <CardMedia
                                 component="div"
                                 sx={{
-                                    background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5))',
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',

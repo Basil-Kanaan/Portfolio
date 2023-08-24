@@ -3,9 +3,12 @@ import { Container, Typography, Box, IconButton, Link } from '@mui/material';
 import { LinkedIn, GitHub } from '@mui/icons-material';
 
 const ContactSection = () => {
+    const iconSize = '3rem';
+    const iconColor = 'white';
+
     return (
         <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4 }}>
+            <Typography variant="h4" align="center" sx={{ mb: 4, fontSize: "3rem"  }}>
                 Contact Me
             </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -17,7 +20,7 @@ const ContactSection = () => {
                     aria-label="LinkedIn"
                     sx={{ m: 2 }}
                 >
-                    <LinkedIn />
+                    <LinkedIn sx={{ color: iconColor, fontSize: iconSize }} />
                 </IconButton>
                 <IconButton
                     component={Link}
@@ -27,7 +30,7 @@ const ContactSection = () => {
                     aria-label="GitHub"
                     sx={{ m: 2 }}
                 >
-                    <GitHub />
+                    <GitHub sx={{ color: iconColor, fontSize: iconSize }} />
                 </IconButton>
             </Box>
             <Typography variant="body1" sx={{ m: 2 }}>

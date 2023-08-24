@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import { Box, Button, Typography } from '@mui/material';
 
 const HeroSection = () => {
-    const texts = [
-        "Hi, I'm Basil.",
-        "Software Engineer from UofT.",
-        "Here to Serve and Inspire."
-    ];
+    const texts = useMemo(
+        () => ["Hi, I'm Basil.", "Grad from UofT.", "Highest Distinction.", "Software Engineer."],
+        []
+    );
 
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,10 +14,11 @@ const HeroSection = () => {
         const intervalId = setInterval(() => {
             const nextIndex = (currentIndex + 1) % texts.length;
             setCurrentIndex(nextIndex);
-        }, 8000); // Change text every 5 seconds
+        }, 8000);
 
         return () => clearInterval(intervalId);
-    }, [currentIndex]);
+    }, [currentIndex, texts]);
+
 
     useEffect(() => {
         const targetText = texts[currentIndex];
@@ -34,7 +34,7 @@ const HeroSection = () => {
         }, 100); // Type one character every 100 milliseconds
 
         return () => clearInterval(typingInterval);
-    }, [currentIndex]);
+    }, [currentIndex, texts]);
 
     return (
         <Box
