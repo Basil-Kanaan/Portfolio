@@ -25,10 +25,10 @@ const serviceData = [
 const ServicesSection = () => {
     return (
         <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4 }}>
-                My Services
+            <Typography variant="h4" align="center" sx={{ mb: 4, fontSize: "3rem" }}>
+                Services
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {serviceData.map((service, index) => (
                     <Card
                         key={index}
