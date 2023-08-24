@@ -1,6 +1,8 @@
 import React from 'react';
-import {Box, Card, CardActionArea, CardContent, CardMedia, Container, Typography} from '@mui/material';
-import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png'; // Update the import path
+import {Box, Container, Typography} from '@mui/material';
+import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
+import apexNodeImage from '../assets/images/ApexNode.png';
+import ProductCard from "./ProductCard";
 
 const projectData = [
     {
@@ -11,10 +13,9 @@ const projectData = [
     },
     {
         title: 'ApexNode',
-        description:
-            'A company specializing in outsourcing services like app and website development.',
+        description: 'outsourcing with tiered workforce',
         link: 'https://bb0lt.github.io/ApexNode-public',
-        image: "", // Import the image
+        image: apexNodeImage, // Import the image
     },
     // Add more projects
 ];
@@ -27,42 +28,7 @@ const ProjectsSection = () => {
             </Typography>
             <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {projectData.map((project, index) => (
-                    <Card
-                        key={index}
-                        sx={{
-                            width: 280,
-                            height: 380,
-                            m: 2,
-                            transition: 'transform 0.3s',
-                            '&:hover': {
-                                transform: 'scale(1.05)',
-                            },
-                        }}
-                    >
-                        <CardActionArea
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{display: 'flex', flexDirection: 'column', height: '100%'}}
-                        >
-                            <CardMedia
-                                component="div"
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    flex: 1,
-                                }}
-                            >
-                                <img src={project.image} alt={project.title}
-                                     style={{maxWidth: '100%', maxHeight: '100%'}}/>
-                            </CardMedia>
-                            <CardContent>
-                                <Typography variant="h6">{project.title}</Typography>
-                                <Typography>{project.description}</Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
+                    <ProductCard key={index} project={project} />
                 ))}
             </Box>
         </Container>
