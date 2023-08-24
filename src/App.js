@@ -1,16 +1,16 @@
 import './App.css';
 import MainPage from "./pages/MainPage";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-        <Router basename="/Portfolio"> {/* Set basename */}
-            <MainPage />
-        </Router>
+    return (
+        <div className="App">
+            <Router basename="/Portfolio"> {/* Set basename */}
+                <MainPage/>
+            </Router>
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;

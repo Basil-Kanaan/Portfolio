@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Typography, Button } from '@mui/material';
+import {Button, Container, Typography} from '@mui/material';
 
 const ResumeSection = () => {
     return (
-        <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4 , fontSize: "3rem" }}>
+        <Container sx={{py: 8}}>
+            <Typography variant="h4" align="center" sx={{mb: 4, fontSize: "3rem"}}>
                 Resume
             </Typography>
-            <Button variant="contained"  color="primary" href="Software-Engineer-Resume.pdf" target="_blank">
+            <Button variant="contained" color="primary" href="Software-Engineer-Resume.pdf" target="_blank">
                 Download Resume
             </Button>
         </Container>

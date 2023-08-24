@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Box, Card, CardContent, CardActionArea, CardMedia } from '@mui/material';
+import {Box, Card, CardActionArea, CardContent, CardMedia, Container, Typography} from '@mui/material';
 import WebIcon from '@mui/icons-material/Web';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
@@ -8,27 +8,27 @@ const serviceData = [
     {
         title: 'Full Stack Web Development',
         description: 'Crafting dynamic and responsive web applications.',
-        icon: <WebIcon fontSize="large" />,
+        icon: <WebIcon fontSize="large"/>,
     },
     {
         title: 'Video Editing',
         description: 'Creating engaging and captivating video content.',
-        icon: <VideoLabelIcon fontSize="large" />,
+        icon: <VideoLabelIcon fontSize="large"/>,
     },
     {
         title: 'Mobile App Development',
         description: 'Designing and developing intuitive mobile applications.',
-        icon: <MobileFriendlyIcon fontSize="large" />,
+        icon: <MobileFriendlyIcon fontSize="large"/>,
     },
 ];
 
 const ServicesSection = () => {
     return (
-        <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4, fontSize: "3rem" }}>
+        <Container sx={{py: 8}}>
+            <Typography variant="h4" align="center" sx={{mb: 4, fontSize: "3rem"}}>
                 Services
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {serviceData.map((service, index) => (
                     <Card
                         key={index}
@@ -42,7 +42,7 @@ const ServicesSection = () => {
                             },
                         }}
                     >
-                        <CardActionArea sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                        <CardActionArea sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
                             <CardMedia
                                 component="div"
                                 sx={{

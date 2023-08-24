@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import React, {useEffect, useMemo, useState} from 'react';
+import {Box, Button, Typography} from '@mui/material';
 
 const HeroSection = () => {
     const texts = useMemo(
@@ -56,7 +56,7 @@ const HeroSection = () => {
                 }}
             />
             {/* Your image overlay */}
-            <img src="path_to_overlay_image.png" alt="Overlay" />
+            <img src="path_to_overlay_image.png" alt="Overlay"/>
             <Box
                 sx={{
                     position: 'absolute',
@@ -66,7 +66,7 @@ const HeroSection = () => {
                     textAlign: 'center',
                 }}
             >
-                <Typography variant="h3" sx={{ color: '#ffffff' }}>
+                <Typography variant="h3" sx={{color: '#ffffff'}}>
                     {currentText}
                 </Typography>
                 <Button variant="contained" color="primary" href="mailto:basil.kanaan@mail.utoronto.ca">

@@ -9,14 +9,14 @@ import SectionDivider from "../components/SectionDivider";
 const MainPage = () => {
     return (
         <div>
-            <HeroSection />
-            <ServicesSection />
-            <SectionDivider />
-            <ResumeSection />
-            <SectionDivider />
-            <ProjectsSection />
-            <SectionDivider />
-            <ContactSection />
+            <HeroSection/>
+            <ServicesSection/>
+            <SectionDivider/>
+            <ResumeSection/>
+            <SectionDivider/>
+            <ProjectsSection/>
+            <SectionDivider/>
+            <ContactSection/>
         </div>
     );
 };
