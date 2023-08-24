@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Box, Card, CardContent, CardActionArea, CardMedia } from '@mui/material';
+import {Box, Card, CardActionArea, CardContent, CardMedia, Container, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png'; // Update the import path
 
 const projectData = [
@@ -21,11 +21,11 @@ const projectData = [
 
 const ProjectsSection = () => {
     return (
-        <Container sx={{ py: 8 }}>
-            <Typography variant="h4" align="center" sx={{ mb: 4, fontSize: "3rem" }}>
+        <Container sx={{py: 8}}>
+            <Typography variant="h4" align="center" sx={{mb: 4, fontSize: "3rem"}}>
                 Projects
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {projectData.map((project, index) => (
                     <Card
                         key={index}
@@ -43,7 +43,7 @@ const ProjectsSection = () => {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+                            sx={{display: 'flex', flexDirection: 'column', height: '100%'}}
                         >
                             <CardMedia
                                 component="div"
@@ -54,7 +54,8 @@ const ProjectsSection = () => {
                                     flex: 1,
                                 }}
                             >
-                                <img src={project.image} alt={project.title} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                                <img src={project.image} alt={project.title}
+                                     style={{maxWidth: '100%', maxHeight: '100%'}}/>
                             </CardMedia>
                             <CardContent>
                                 <Typography variant="h6">{project.title}</Typography>
