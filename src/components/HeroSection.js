@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import suit0 from '../assets/images/suit0.png';
 import suit1 from '../assets/images/suit1.png';
+import heroVideo from '../assets/videos/heroBG.mp4'; // Import the video file
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
 const images = [suit1, suit0];
 
 const texts = [
-    "Hi, I'm Basil.",
-    "Grad from UofT.",
-    "Software Engineer."
+    "UofT Graduate",
+    "Software Engineer"
 ];
 
 const HeroSection = () => {
@@ -62,6 +62,22 @@ const HeroSection = () => {
                 height: '100vh',
             }}
         >
+            <video
+                autoPlay
+                muted
+                loop
+                style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    height: '100%',
+                    width: '100%',
+                    opacity: 0.3,
+                    objectFit: "cover"
+                }}
+            >
+                <source src={heroVideo} type="video/mp4" />
+            </video>
             <img
                 src={images[currentImageIndex]}
                 alt="Overlay"
@@ -81,7 +97,7 @@ const HeroSection = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 50%)',
+                    background: 'linear-gradient(to top, rgba(0, 0, 0, 1), transparent 50%)',
                 }}
             />
             <Box
@@ -94,7 +110,10 @@ const HeroSection = () => {
                     textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
                 }}
             >
-                <Typography variant="h3" sx={{ color: '#ffffff' }}>
+                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "4rem" }}>
+                    Basil Kanaan
+                </Typography>
+                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "2.5rem"}}>
                     {currentText}
                 </Typography>
             </Box>
@@ -107,9 +126,6 @@ const HeroSection = () => {
                     textAlign: 'center',
                 }}
             >
-                <Button variant="contained" color="primary" href="mailto:basil.kanaan@mail.utoronto.ca">
-                    Email Me
-                </Button>
             </Box>
             <Box
                 sx={{
