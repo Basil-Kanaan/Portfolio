@@ -14,9 +14,10 @@ const ProductCard = ({ project }) => {
                 width: 280,
                 height: 380,
                 m: 2,
-                transition: 'transform 0.3s',
+                transition: 'transform 0.3s, box-shadow 0.3s',
                 '&:hover': {
                     transform: 'scale(1.05)',
+                    boxShadow: '0 0 20px rgba(0, 255, 255, 0.8)',
                 },
             }}
         >
@@ -26,7 +27,7 @@ const ProductCard = ({ project }) => {
                 rel="noopener noreferrer"
                 sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}
             >
-                {/*TODO: MAKE SURE TO REMOVE THIS AND ADD PROPER IMAGES FOR SERVICES*/}
+                {/* TODO: MAKE SURE TO REMOVE THIS AND ADD PROPER IMAGES FOR SERVICES */}
                 {project.image === '' ? (
                     <CardMedia
                         component="div"
@@ -51,14 +52,18 @@ const ProductCard = ({ project }) => {
                             flex: 1,
                         }}
                     >
-                        <img src={project.image} alt={project.title} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            style={{ maxWidth: '100%', maxHeight: '100%' }}
+                        />
                     </CardMedia>
                 )}
 
                 <CardContent sx={{
                     height: "5rem"
                 }}>
-                    <Typography variant="h6">{project.title}</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{project.title}</Typography>
                     <Typography>{project.description}</Typography>
                 </CardContent>
             </CardActionArea>
