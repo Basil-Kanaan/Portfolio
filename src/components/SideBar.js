@@ -5,6 +5,7 @@ import { Email, GitHub, LinkedIn } from "@mui/icons-material";
 const SideBar = () => {
     const iconSize = '2rem';
     const iconColor = 'white';
+    const sidebarHeight = '50%';
 
     const sendEmail = () => {
         window.location.href = "mailto:basil.kanaan@mail.utoronto.ca";
@@ -14,18 +15,19 @@ const SideBar = () => {
         <Box
             sx={{
                 position: 'fixed',
-                top: 0,
+                top: '50%',
                 right: 0,
-                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 background: 'rgba(0, 0, 0, 0)',
                 transition: 'transform 0.3s, background 0.3s',
+                transform: `translateY(-${sidebarHeight})`, // Translate up by 50% of sidebar height
+                borderRadius: '15px', // Rounded corners
                 '&:hover': {
                     background: 'rgba(0, 0, 0, 0.3)',
-                    transform: 'scale(1.05)',
+                    transform: `translateY(calc(-${sidebarHeight} + 10px)) scale(1.05)`, // Adjusted translation
                 },
             }}
         >
