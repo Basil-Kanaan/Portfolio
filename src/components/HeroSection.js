@@ -72,7 +72,7 @@ const HeroSection = () => {
                     left: 0,
                     height: '100%',
                     width: '100%',
-                    opacity: 0.3,
+                    opacity: 0.5,
                     objectFit: "cover"
                 }}
             >
@@ -81,7 +81,7 @@ const HeroSection = () => {
             <img
                 src={images[currentImageIndex]}
                 alt="Overlay"
-                height="95%"
+                height="94%"
                 style={{
                     position: 'absolute',
                     bottom:0,
@@ -110,10 +110,10 @@ const HeroSection = () => {
                     textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
                 }}
             >
-                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "4rem" }}>
+                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "5rem", fontWeight: 'bold' }}>
                     Basil Kanaan
                 </Typography>
-                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "2.5rem"}}>
+                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "2rem"}}>
                     {currentText}
                 </Typography>
             </Box>
@@ -144,7 +144,7 @@ const HeroSection = () => {
                         cursor: 'pointer',
                         transition: 'transform 0.3s, font-size 0.3s',
                         '&:hover': {
-                            transform: 'scale(1.2)',
+                            transform: 'scale(1.3)',
                         },
                     }}
                     onClick={scrollToNextSection}
