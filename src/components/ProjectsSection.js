@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, Container, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
 import apexNodeImage from '../assets/images/ApexNode.png';
-import ProductCard from "./ProductCard";
+import ProjectCard from "./ProjectCard";
 
 const projectData = [
     {
@@ -13,7 +13,7 @@ const projectData = [
     },
     {
         title: 'ApexNode',
-        description: 'outsourcing with tiered workforce',
+        description: 'Outsourcing company with tiered workforce.',
         link: 'https://bb0lt.github.io/ApexNode-public',
         image: apexNodeImage, // Import the image
     },
@@ -28,7 +28,7 @@ const ProjectsSection = () => {
             </Typography>
             <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {projectData.map((project, index) => (
-                    <ProductCard key={index} project={project} />
+                    <ProjectCard key={index} project={project} />
                 ))}
             </Box>
         </Container>
