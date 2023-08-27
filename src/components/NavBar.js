@@ -16,11 +16,21 @@ const NavBar = () => {
         });
     };
     const scrollToNextSection = () => {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth',
-        });
+        if (window.location.pathname === '/Portfolio/projects') {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: window.innerHeight*2,
+                    behavior: 'smooth',
+                });
+            }, 100); // Delay for 1 second
+        } else {
+            window.scrollTo({
+                top: window.innerHeight*2,
+                behavior: 'smooth',
+            });
+        }
     };
+
 
     return (
         <AppBar position="fixed" sx={{
@@ -33,12 +43,13 @@ const NavBar = () => {
                     <HomeIcon sx={{ fontSize: '2rem', color: 'white' }} />
                 </RouterLink>
                 <Box sx={{ display: 'flex', gap: '2rem' }}>
-                    <Typography variant="body1" onClick={scrollToNextSection} component={RouterLink} sx={{ color: 'white', fontWeight: 'bold', textDecoration: 'none', opacity: !trigger ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+                    <Typography component={RouterLink} variant="body1" to="/" onClick={scrollToNextSection} sx={{ color: 'white', fontWeight: 'bold', textDecoration: 'none', opacity: !trigger ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
                         Services
                     </Typography>
 
-                    <Typography variant="body1" component={RouterLink} to="/portfolio" sx={{ color: 'white', fontWeight: 'bold', textDecoration: 'none', opacity: !trigger ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
-                        Portfolio
+
+                    <Typography variant="body1" component={RouterLink} to="/projects" sx={{ color: 'white', fontWeight: 'bold', textDecoration: 'none', opacity: !trigger ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+                        Projects
                     </Typography>
                 </Box>
             </Toolbar>
