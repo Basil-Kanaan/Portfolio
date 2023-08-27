@@ -23,7 +23,7 @@ const projectData = [
 const ProjectsSection = () => {
     return (
         <Container sx={{py: 8}}>
-            <Typography variant="h4" align="center" sx={{mb: 4, fontSize: "3rem"}}>
+            <Typography variant="h1" sx={{mb: "2rem", fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
                 Projects
             </Typography>
             <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>

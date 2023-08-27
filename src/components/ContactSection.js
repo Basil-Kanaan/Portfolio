@@ -12,7 +12,7 @@ const ContactSection = () => {
 
     return (
         <Container sx={{py: 8}}>
-            <Typography variant="h4" align="center" sx={{mb: 4, fontSize: "3rem"}}>
+            <Typography variant="h1" sx={{fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
                 Contact Me
             </Typography>
             <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -44,7 +44,7 @@ const ContactSection = () => {
                     <Email sx={{color: iconColor, fontSize: iconSize}} />
                 </IconButton>
             </Box>
-            <Typography variant="body1" sx={{m: 2}}>
+            <Typography variant="body1" sx={{m: 2, fontSize: "1.5rem", fontWeight: "bold",}}>
                 Email: <Link href="mailto:basil.kanaan@mail.utoronto.ca">basil.kanaan@mail.utoronto.ca</Link>
             </Typography>
         </Container>

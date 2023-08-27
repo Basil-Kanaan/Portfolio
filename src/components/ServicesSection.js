@@ -38,7 +38,7 @@ const ServicesSection = () => {
             }}
         >
             <Box sx={{ textAlign: 'center', mb: 4 }}>
-                <Typography variant="h4" sx={{ fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
+                <Typography variant="h1" sx={{ fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
                     Services
                 </Typography>
                 <Typography variant="subtitle1" sx={{ color: 'gray', mt: 2, fontSize: '1.5rem', fontStyle: 'italic', textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
