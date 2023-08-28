@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Typography,
-} from '@mui/material';
+import {Card, CardActionArea, CardContent, CardMedia, Typography,} from '@mui/material';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({project}) => {
     return (
         <Card
             sx={{
@@ -43,7 +37,7 @@ const ProjectCard = ({ project }) => {
                         boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{project.title}</Typography>
+                    <Typography variant="h6" sx={{fontWeight: 'bold'}}>{project.title}</Typography>
                     <Typography>{project.description}</Typography>
                 </CardContent>
             </CardActionArea>

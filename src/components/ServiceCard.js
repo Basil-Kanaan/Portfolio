@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Typography,
-    Dialog,
-    DialogContent,
-    Box,
-} from '@mui/material';
+import React, {useState} from 'react';
+import {Box, Card, CardActionArea, CardContent, CardMedia, Dialog, DialogContent, Typography,} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const ServiceCard = ({ project }) => {
+const ServiceCard = ({project}) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const togglePopup = () => {
-        if (project.details) {setIsPopupOpen(!isPopupOpen)}
+        if (project.details) {
+            setIsPopupOpen(!isPopupOpen)
+        }
     };
 
     return (
@@ -34,7 +27,7 @@ const ServiceCard = ({ project }) => {
         >
             <CardActionArea
                 onClick={togglePopup}
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                sx={{height: '100%', display: 'flex', flexDirection: 'column'}}
             >
                 <CardMedia
                     component="div"
@@ -59,7 +52,7 @@ const ServiceCard = ({ project }) => {
                         boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                    <Typography variant="h6" sx={{fontWeight: 'bold'}}>
                         {project.title}
                     </Typography>
                     <Typography>{project.description}</Typography>
@@ -71,7 +64,7 @@ const ServiceCard = ({ project }) => {
                                 alignItems: 'center',
                             }}
                         >
-                           <ExpandMoreIcon />
+                            <ExpandMoreIcon/>
                         </Box>
                     )}
                 </CardContent>

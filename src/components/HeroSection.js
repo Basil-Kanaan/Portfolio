@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {Box, Typography} from '@mui/material';
 import suit0 from '../assets/images/suit0.png';
 import suit1 from '../assets/images/suit1.png';
 import heroVideo from '../assets/videos/heroBG.mp4'; // Import the video file
@@ -76,7 +76,7 @@ const HeroSection = () => {
                     objectFit: "cover"
                 }}
             >
-                <source src={heroVideo} type="video/mp4" />
+                <source src={heroVideo} type="video/mp4"/>
             </video>
             <img
                 src={images[currentImageIndex]}
@@ -84,7 +84,7 @@ const HeroSection = () => {
                 height="94%"
                 style={{
                     position: 'absolute',
-                    bottom:0,
+                    bottom: 0,
                     left: "10%",
                     zIndex: 0,
                 }}
@@ -110,10 +110,10 @@ const HeroSection = () => {
                     textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
                 }}
             >
-                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "5rem", fontWeight: 'bold' }}>
+                <Typography variant="h3" sx={{color: '#ffffff', fontSize: "5rem", fontWeight: 'bold'}}>
                     Basil Kanaan
                 </Typography>
-                <Typography variant="h3" sx={{ color: '#ffffff', fontSize: "2rem"}}>
+                <Typography variant="h3" sx={{color: '#ffffff', fontSize: "2rem"}}>
                     {currentText}
                 </Typography>
             </Box>
