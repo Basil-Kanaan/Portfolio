@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Card,
     CardActionArea,
     CardContent,
     CardMedia,
     Typography,
+    Dialog,
+    DialogContent,
+    Box,
 } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const ServiceCard = ({ project }) => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const togglePopup = () => {
+        if (project.details) {setIsPopupOpen(!isPopupOpen)}
+    };
+
     return (
         <Card
             sx={{
@@ -23,37 +33,54 @@ const ServiceCard = ({ project }) => {
             }}
         >
             <CardActionArea
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{height: '100%', display: "flex", flexDirection: "column"}}
+                onClick={togglePopup}
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
-
-             <CardMedia
-                 component="div"
-                 sx={{
-                 background: 'linear-gradient(to bottom, rgba(57,116,133,1) 0%, rgba(21,24,52,1) 100%)',
-                 display: 'flex',
-                 justifyContent: 'center',
-                 alignItems: 'center',
-                 height: '70%',
-                 width: "100%"
-                }}>
+                <CardMedia
+                    component="div"
+                    sx={{
+                        background:
+                            'linear-gradient(to bottom, rgba(57,116,133,1) 0%, rgba(21,24,52,1) 100%)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '70%',
+                        width: '100%',
+                    }}
+                >
                     {project.icon}
-             </CardMedia>
-
+                </CardMedia>
 
                 <CardContent
                     sx={{
                         flex: 1,
-                        backgroundColor: '#c6c5b9', textAlign: 'center',
+                        backgroundColor: '#ffffff',
+                        textAlign: 'center',
                         boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{project.title}</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                        {project.title}
+                    </Typography>
                     <Typography>{project.description}</Typography>
+                    {project.details && (
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                        >
+                           <ExpandMoreIcon />
+                        </Box>
+                    )}
                 </CardContent>
             </CardActionArea>
+            <Dialog open={isPopupOpen} onClose={togglePopup} maxWidth="md" fullWidth>
+                <DialogContent>
+                    {project.details}
+                </DialogContent>
+            </Dialog>
         </Card>
     );
 };
