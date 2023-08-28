@@ -111,8 +111,8 @@ const AboutMe = () => {
                     transition={{duration: 0.5}}
                 >
                     <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <ThumbUpAltIcon sx={{fontSize: '8rem', marginRight: '0.5rem', color: '#4DA1FF'}}/>
-                        <CheckCircleIcon sx={{fontSize: '8rem', color: '#4DA1FF'}}/>
+                        <ThumbUpAltIcon sx={{fontSize: '5rem', marginRight: '0.5rem', color: '#4DA1FF'}}/>
+                        <CheckCircleIcon sx={{fontSize: '5rem', color: '#4DA1FF'}}/>
                     </Box>
                 </motion.div>
             </Box>

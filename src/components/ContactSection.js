@@ -44,9 +44,10 @@ const ContactSection = () => {
                     <Email sx={{color: iconColor, fontSize: iconSize}} />
                 </IconButton>
             </Box>
-            <Typography variant="body1" sx={{m: 2, fontSize: "1.5rem", fontWeight: "bold",}}>
-                Email: <Link href="mailto:basil.kanaan@mail.utoronto.ca">basil.kanaan@mail.utoronto.ca</Link>
+            <Typography variant="body1" sx={{mt: 2, fontSize: "1.5rem", fontWeight: "bold",}}>
+                Email:
             </Typography>
+            <Link sx={{fontSize: "1.5rem"}} href="mailto:basil.kanaan@mail.utoronto.ca">basil.kanaan@mail.utoronto.ca</Link>
         </Container>
     );
 };
