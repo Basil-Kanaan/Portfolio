@@ -8,7 +8,7 @@ const ResumeSection = () => {
                 Resume
             </Typography>
             <Button variant="contained" color="primary" href="Software-Engineer-Resume.pdf" target="_blank"
-            sx={{padding: "1rem", paddingX: "2rem"}}>
+                    sx={{padding: "1rem", paddingX: "2rem"}}>
                 View
             </Button>
         </Container>

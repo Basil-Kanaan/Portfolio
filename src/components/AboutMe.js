@@ -21,7 +21,7 @@ const AboutMe = () => {
 
     const paragraphVariants = {
         hiddenL: {opacity: 0, x: -50},
-        hiddenR:  window.innerWidth >= 960 ? { opacity: 0, x: 50 } : { opacity: 0, x: 0 },
+        hiddenR: window.innerWidth >= 960 ? {opacity: 0, x: 50} : {opacity: 0, x: 0},
         hiddenD: {opacity: 0, y: 50},
         hiddenU: {opacity: 0, y: -50},
         hidden: {opacity: 0},
@@ -44,7 +44,13 @@ const AboutMe = () => {
                     animate={scrollY > window.innerHeight / 1.5 - 200 ? "visible" : "hidden"}
                     transition={{duration: 1}}
                 >
-                    <Typography variant="h1" sx={{ mt:4, mb: 2, fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)' }}>
+                    <Typography variant="h1" sx={{
+                        mt: 4,
+                        mb: 2,
+                        fontSize: "4rem",
+                        fontWeight: "bold",
+                        textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)'
+                    }}>
                         About Me
                     </Typography>
 
@@ -65,8 +71,8 @@ const AboutMe = () => {
                         variants={paragraphVariants}
                         initial="hiddenU"
                         animate={scrollY > window.innerHeight / 1.5 ? "visible" : "hiddenU"}
-                        transition={{ duration: 1 }}
-                        style={{ textAlign: 'center' }}
+                        transition={{duration: 1}}
+                        style={{textAlign: 'center'}}
                     >
                         <div>
                             Hi! <br/>
@@ -75,13 +81,13 @@ const AboutMe = () => {
                         </div>
                     </motion.div>
 
-                    <br /><br />
+                    <br/><br/>
                     <motion.div
                         variants={paragraphVariants}
                         initial="hiddenL"
                         animate={scrollY > window.innerHeight / 1.5 + 200 ? "visible" : "hiddenL"}
-                        transition={{ duration: 1 }}
-                        style={{ textAlign: 'center' }}
+                        transition={{duration: 1}}
+                        style={{textAlign: 'center'}}
                     >
                         <div>
                             My journey is fueled by a relentless drive to deliver excellence. I believe in the
@@ -89,12 +95,12 @@ const AboutMe = () => {
                             and robust software that stands the test of time.
                         </div>
                     </motion.div>
-                    <br /><br />
+                    <br/><br/>
                     <motion.div
                         variants={paragraphVariants}
                         initial="hiddenR"
                         animate={scrollY > window.innerHeight / 1.5 + 400 ? "visible" : "hiddenR"}
-                        transition={{ duration: 1 }}
+                        transition={{duration: 1}}
                     >
                         <div>
                             Beyond code, I am driven by a commitment to trustworthiness and dependability.
