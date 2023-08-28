@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, IconButton, Link } from '@mui/material';
-import { Email, GitHub, LinkedIn } from "@mui/icons-material";
+import {Box, IconButton, Link} from '@mui/material';
+import {Email, GitHub, LinkedIn} from "@mui/icons-material";
 
 const SideBar = () => {
     const iconSize = '2rem';
@@ -56,7 +56,7 @@ const SideBar = () => {
                 sx={{m: 1}}
                 onClick={sendEmail}
             >
-                <Email sx={{color: iconColor, fontSize: iconSize}} />
+                <Email sx={{color: iconColor, fontSize: iconSize}}/>
             </IconButton>
         </Box>
     );
