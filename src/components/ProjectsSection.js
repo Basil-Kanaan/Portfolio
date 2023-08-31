@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Container, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
 import apexNodeImage from '../assets/images/ApexNode.png';
+import optimizerAppImage from '../assets/images/TimetableOptimizer.png';
 import ProjectCard from "./ProjectCard";
 
 const projectData = [
@@ -16,6 +17,12 @@ const projectData = [
         description: 'Outsourcing company with tiered workforce.',
         link: 'https://bb0lt.github.io/ApexNode-public',
         image: apexNodeImage, // Import the image
+    },
+    {
+        title: 'Timetable Optimizer',
+        description: 'Android App for generating UofT Timetable Schedules.',
+        link: 'https://play.google.com/store/apps/details?id=com.github.Bb0lt.utmtimetablebuilder',
+        image: optimizerAppImage, // Import the image
     },
     // Add more projects
 ];
