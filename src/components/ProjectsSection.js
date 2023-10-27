@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Container, Typography} from '@mui/material';
+import {Box, Container, Divider, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
 import apexNodeImage from '../assets/images/ApexNode.png';
 import optimizerAppImage from '../assets/images/TimetableOptimizer.png';
@@ -29,21 +29,35 @@ const projectData = [
 
 const ProjectsSection = () => {
     return (
-        <Container sx={{py: 8}}>
-            <Typography variant="h1" sx={{
-                mb: "2rem",
-                fontSize: "4rem",
-                fontWeight: "bold",
-                textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)'
-            }}>
-                Projects
-            </Typography>
-            <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
-                {projectData.map((project, index) => (
-                    <ProjectCard key={index} project={project}/>
-                ))}
-            </Box>
-        </Container>
+        <div style={{}}>
+            <Container
+                sx={{
+                    p: 5,
+                    mb: 10,
+                    minHeight: '70vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+            >
+                <Typography variant={"h2"}>
+                    Projects
+                </Typography>
+                <Typography variant={"h3"}>
+                    Click to View!
+                </Typography>
+                <Divider sx={{mt: 4, background: "gray", width: '40%', mb: 4}}/>
+
+                <br/>
+                <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
+                    {projectData.map((project, index) => (
+                        <ProjectCard key={index} project={project}/>
+                    ))}
+                </Box>
+            </Container>
+        </div>
+
     );
 };
 
