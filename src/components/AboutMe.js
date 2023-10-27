@@ -107,9 +107,9 @@ const AboutMe = () => {
                         transition={{duration: 0.5}}
 
                     >
-                        <div style={{color: "lightblue"}}>
+                        <Typography variant={"h4"} sx={{color: "lightblue"}}>
                             Let's get started!
-                        </div>
+                        </Typography>
                         <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                             <ThumbUpAltIcon sx={{fontSize: '5rem', marginRight: '0.5rem', color: '#4DA1FF'}}/>
                             <CheckCircleIcon sx={{fontSize: '5rem', color: '#4DA1FF'}}/>
