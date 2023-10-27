@@ -29,26 +29,20 @@ const ServicesSection = () => {
     return (
         <Container
             sx={{
-                py: 8,
-                width: "100%",
+                p: 5,
+                minHeight: '50vh',
                 display: 'flex',
+                justifyContent: 'center',
                 flexDirection: 'column',
                 alignItems: 'center',
             }}
         >
             <Box sx={{textAlign: 'center', mb: 4}}>
-                <Typography variant="h1"
-                            sx={{fontSize: "4rem", fontWeight: "bold", textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)'}}>
+                <Typography variant={"h2"}>
                     Services
                 </Typography>
-                <Typography variant="subtitle1" sx={{
-                    color: 'gray',
-                    mt: 2,
-                    fontSize: '1.5rem',
-                    fontStyle: 'italic',
-                    textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)'
-                }}>
-                    Quality Innovation, <br/> Building Trust in Every Line of Code.
+                <Typography variant={"h3"}>
+                    Quality Innovation.
                 </Typography>
             </Box>
             <Divider sx={{background: "gray", width: '40%', mb: 4}}/>

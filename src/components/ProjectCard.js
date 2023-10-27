@@ -33,7 +33,7 @@ const ProjectCard = ({project}) => {
                 <CardContent
                     sx={{
                         flex: 1,
-                        backgroundColor: '#c6c5b9', textAlign: 'center',
+                        backgroundColor: '#fdfdfd', textAlign: 'center',
                         boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
                     }}
                 >
