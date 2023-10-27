@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Typography} from '@mui/material';
-import suit0 from '../assets/images/suit0.png';
+// import suit0 from '../assets/images/suit0.png';
 import suit1 from '../assets/images/suit1.png';
 import heroVideo from '../assets/videos/heroBG.mp4'; // Import the video file
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
-const images = [suit1, suit0];
+const images = [suit1, suit1];
 
 const texts = [
     "UofT Graduate",
@@ -13,7 +13,7 @@ const texts = [
 ];
 
 const HeroSection = () => {
-    const [currentText, setCurrentText] = useState('');
+    const [currentText, setCurrentText] = useState(' ');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         const targetText = texts[currentIndex];
-        let charIndex = 0;
+        let charIndex = 1;
 
         const typingInterval = setInterval(() => {
             setCurrentText(targetText.substring(0, charIndex));
@@ -97,7 +97,7 @@ const HeroSection = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to top, rgba(0, 0, 0, 1), transparent 50%)',
+                    background: 'linear-gradient(to top, rgba(0,0,0,1), transparent 20%)',
                 }}
             />
             <Box
@@ -110,10 +110,10 @@ const HeroSection = () => {
                     textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
                 }}
             >
-                <Typography variant="h3" sx={{color: '#ffffff', fontSize: "5rem", fontWeight: 'bold'}}>
+                <Typography variant="h1">
                     Basil Kanaan
                 </Typography>
-                <Typography variant="h3" sx={{color: '#ffffff', fontSize: "2rem"}}>
+                <Typography variant="h4">
                     {currentText}
                 </Typography>
             </Box>
