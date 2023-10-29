@@ -1,19 +1,12 @@
 import React from 'react';
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    Typography,
-    useScrollTrigger,
-    useMediaQuery, IconButton,
-} from '@mui/material';
+import {AppBar, Box, IconButton, Toolbar, Typography, useMediaQuery, useScrollTrigger,} from '@mui/material';
 import {
     Home as HomeIcon,
     Info as InfoIcon,
-    Work as WorkIcon,
     MailOutline as MailOutlineIcon,
+    Work as WorkIcon,
 } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
+import {Link as RouterLink} from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -34,7 +27,7 @@ const NavBar = () => {
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            section.scrollIntoView({behavior: 'smooth'});
         }
     };
 
@@ -48,7 +41,7 @@ const NavBar = () => {
                         onClick={() => scrollToSection('about-section')}
                         className="navbar-link"
                     >
-                        <InfoIcon />
+                        <InfoIcon/>
                     </IconButton>
                     <IconButton
                         component={RouterLink}
@@ -56,7 +49,7 @@ const NavBar = () => {
                         onClick={() => scrollToSection('services-section')}
                         className="navbar-link"
                     >
-                        <WorkIcon />
+                        <WorkIcon/>
                     </IconButton>
                     <IconButton
                         component={RouterLink}
@@ -64,7 +57,7 @@ const NavBar = () => {
                         onClick={() => scrollToSection('projects-section')}
                         className="navbar-link"
                     >
-                        <WorkIcon />
+                        <WorkIcon/>
                     </IconButton>
                     <IconButton
                         component={RouterLink}
@@ -72,7 +65,7 @@ const NavBar = () => {
                         onClick={() => scrollToSection('contact-section')}
                         className="navbar-link"
                     >
-                        <MailOutlineIcon />
+                        <MailOutlineIcon/>
                     </IconButton>
                 </>
             );
@@ -137,11 +130,11 @@ const NavBar = () => {
             }}
         >
             <Toolbar className="navbar">
-                <RouterLink to="/" onClick={scrollToTop} style={{ textDecoration: 'none', cursor: 'pointer' }}>
-                    <HomeIcon className="home-icon" />
+                <RouterLink to="/" onClick={scrollToTop} style={{textDecoration: 'none', cursor: 'pointer'}}>
+                    <HomeIcon className="navbar-link"/>
                 </RouterLink>
 
-                <Box className="nav-links" sx={{ marginLeft: 'auto' }}>
+                <Box className="nav-links" sx={{marginLeft: 'auto'}}>
                     {renderLinks()}
                 </Box>
             </Toolbar>
