@@ -1,7 +1,7 @@
 import './App.css';
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar/NavBar";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/SideBar/SideBar";
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
