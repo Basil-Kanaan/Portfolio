@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.015a288a.css",
-    "main.js": "/Portfolio/static/js/main.1f77ef60.js",
+    "main.css": "/Portfolio/static/css/main.e57d6b10.css",
+    "main.js": "/Portfolio/static/js/main.f2b01b26.js",
     "static/media/heroBG.mp4": "/Portfolio/static/media/heroBG.d8d9171d1f2687ce5760.mp4",
     "static/media/suit1.png": "/Portfolio/static/media/suit1.f48f98f6fe3e0ade9b85.png",
     "static/media/ApexNode.png": "/Portfolio/static/media/ApexNode.f1f1ca7fa2d9c573cbc4.png",
     "static/media/2D-BattleRoyale.png": "/Portfolio/static/media/2D-BattleRoyale.994631dbf44eabeb0cdf.png",
     "static/media/TimetableOptimizer.png": "/Portfolio/static/media/TimetableOptimizer.ca9661388c5d6a02cea3.png",
     "index.html": "/Portfolio/index.html",
-    "main.015a288a.css.map": "/Portfolio/static/css/main.015a288a.css.map",
-    "main.1f77ef60.js.map": "/Portfolio/static/js/main.1f77ef60.js.map"
+    "main.e57d6b10.css.map": "/Portfolio/static/css/main.e57d6b10.css.map",
+    "main.f2b01b26.js.map": "/Portfolio/static/js/main.f2b01b26.js.map"
   },
   "entrypoints": [
-    "static/css/main.015a288a.css",
-    "static/js/main.1f77ef60.js"
+    "static/css/main.e57d6b10.css",
+    "static/js/main.f2b01b26.js"
   ]
 }
