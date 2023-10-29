@@ -47,8 +47,7 @@ const ContactSection = () => {
                 <Paper
                     elevation={5}
                     sx={{
-                        m: 5,
-                        padding: '3rem',
+                        padding: '10%',
                         textAlign: 'center',
                         background: 'rgba(255, 255, 255, 0.9)',
                         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
@@ -107,9 +106,10 @@ const ContactSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
-                        sx={{m: 2}}
+                        sx={{m: 1}}
+
                     >
-                        <Instagram sx={{color: iconColor, fontSize: iconSize}}/>
+                        <Instagram className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
                     </IconButton>
                     <IconButton
                         component={Link}
@@ -117,9 +117,10 @@ const ContactSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn"
-                        sx={{m: 2}}
+                        sx={{m: 1}}
+                        className={"sidebar-link"}
                     >
-                        <LinkedIn sx={{color: iconColor, fontSize: iconSize}}/>
+                        <LinkedIn className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
                     </IconButton>
                     <IconButton
                         component={Link}
@@ -127,16 +128,18 @@ const ContactSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub"
-                        sx={{m: 2}}
+                        sx={{m: 1}}
+                        className={"sidebar-link"}
                     >
-                        <GitHub sx={{color: iconColor, fontSize: iconSize}}/>
+                        <GitHub className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
                     </IconButton>
                     <IconButton
                         aria-label="Email"
-                        sx={{m: 2}}
+                        sx={{m: 1}}
                         onClick={sendEmail}
+                        className={"sidebar-link"}
                     >
-                        <Email sx={{color: iconColor, fontSize: iconSize}}/>
+                        <Email className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
                     </IconButton>
                 </Box>
             </Container>

@@ -27,7 +27,11 @@ const serviceData = [
 
 const ServicesSection = () => {
     return (
-        <Container
+        <div
+            style={{
+                paddingTop: '3rem'
+            }}
+        ><Container
             sx={{
                 p: 5,
                 minHeight: '50vh',
@@ -57,6 +61,8 @@ const ServicesSection = () => {
                 ))}
             </Box>
         </Container>
+        </div>
+
     );
 };
 
