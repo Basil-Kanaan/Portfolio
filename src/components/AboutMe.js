@@ -40,7 +40,6 @@ const AboutMe = () => {
             >
                 <Box sx={{
                     textAlign: 'center',
-                    p: "4rem",
                 }}
                 >
                     <motion.div
@@ -99,7 +98,7 @@ const AboutMe = () => {
                             </Typography>
                         </motion.div>
                     </motion.div>
-                    <br/>
+                    <br/><br/>
                     <motion.div
                         variants={paragraphVariants}
                         initial="hiddenD"

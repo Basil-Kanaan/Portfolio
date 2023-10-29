@@ -1,0 +1,21 @@
+/* navbarStyles.css */
+.navbar a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: lightblue;
+}
+
+.home-icon {
+    font-size: 2rem;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
