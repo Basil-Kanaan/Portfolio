@@ -1,6 +1,7 @@
 import React from 'react';
-import {Box, IconButton, Link, useScrollTrigger} from '@mui/material';
+import {Box, IconButton, Link, useMediaQuery, useScrollTrigger} from '@mui/material';
 import {Email, GitHub, Instagram, LinkedIn} from "@mui/icons-material";
+import './SideBar.css';
 
 const SideBar = () => {
     const iconSize = '2rem';
@@ -16,8 +17,15 @@ const SideBar = () => {
         window.location.href = "mailto:basil.kanaan@mail.utoronto.ca";
     };
 
+    const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
+    if (isSmallScreen) {
+        return null;
+    }
+
     return (
         <Box
+            className={`sidebar-container ${trigger ? 'hidden' : ''} hide-on-small-screen`}
             sx={{
                 position: 'fixed',
                 top: '50%',
@@ -45,8 +53,9 @@ const SideBar = () => {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 sx={{m: 1}}
+
             >
-                <Instagram sx={{color: iconColor, fontSize: iconSize}}/>
+                <Instagram className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
             </IconButton>
             <IconButton
                 component={Link}
@@ -55,8 +64,9 @@ const SideBar = () => {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 sx={{m: 1}}
+                className={"sidebar-link"}
             >
-                <LinkedIn sx={{color: iconColor, fontSize: iconSize}}/>
+                <LinkedIn className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
             </IconButton>
             <IconButton
                 component={Link}
@@ -65,15 +75,17 @@ const SideBar = () => {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
                 sx={{m: 1}}
+                className={"sidebar-link"}
             >
-                <GitHub sx={{color: iconColor, fontSize: iconSize}}/>
+                <GitHub className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
             </IconButton>
             <IconButton
                 aria-label="Email"
                 sx={{m: 1}}
                 onClick={sendEmail}
+                className={"sidebar-link"}
             >
-                <Email sx={{color: iconColor, fontSize: iconSize}}/>
+                <Email className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
             </IconButton>
         </Box>
     );

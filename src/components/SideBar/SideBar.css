@@ -1,0 +1,17 @@
+.sidebar-link:hover {
+    color: lightblue;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* SideBar.css */
+.hide-on-small-screen {
+    display: none; /* Hide the sidebar on small screens */
+}
+
+/* Add this media query to show the sidebar only on screens with a minimum width of 768px (adjust as needed) */
+@media screen and (min-width: 768px) {
+    .hide-on-small-screen {
+        display: flex; /* Show the sidebar on larger screens */
+    }
+}
