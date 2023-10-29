@@ -29,7 +29,11 @@ const projectData = [
 
 const ProjectsSection = () => {
     return (
-        <div style={{}}>
+        <div
+            style={{
+                paddingTop: '5rem'
+            }}
+        >
             <Container
                 sx={{
                     p: 5,

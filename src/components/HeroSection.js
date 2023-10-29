@@ -140,8 +140,8 @@ const HeroSection = () => {
                     sx={{
                         color: '#ffffff',
                         fontSize: '5rem',
-                        marginTop: 20,
                         cursor: 'pointer',
+                        mb: "20%",
                         transition: 'transform 0.3s, font-size 0.3s',
                         '&:hover': {
                             transform: 'scale(1.3)',
