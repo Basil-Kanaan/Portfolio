@@ -124,7 +124,7 @@ const ContactSection = () => {
                     </IconButton>
                     <IconButton
                         component={Link}
-                        href="https://github.com/bb0lt"
+                        href="https://github.com/basil-kanaan"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub"

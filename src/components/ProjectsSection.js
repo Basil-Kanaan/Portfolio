@@ -9,13 +9,13 @@ const projectData = [
     {
         title: '2D-BattleRoyale',
         description: 'A thrilling 2D Battle Royale game with intense gameplay.',
-        link: 'https://bb0lt.github.io/2D-BattleRoyale',
+        link: 'https://basil-kanaan.github.io/2D-BattleRoyale',
         image: battleRoyaleImage, // Use the imported image
     },
     {
         title: 'ApexNode',
         description: 'Outsourcing company with tiered workforce.',
-        link: 'https://bb0lt.github.io/ApexNode-public',
+        link: 'https://basil-kanaan.github.io/ApexNode-public',
         image: apexNodeImage, // Import the image
     },
     {
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
     return (
         <div
             style={{
-                paddingTop: '5rem'
+                paddingTop: '3rem'
             }}
         >
             <Container
