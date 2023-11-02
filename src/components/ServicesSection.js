@@ -29,7 +29,7 @@ const ServicesSection = () => {
     return (
         <div
             style={{
-                paddingTop: '3rem'
+                background: '#050813'
             }}
         ><Container
             sx={{
