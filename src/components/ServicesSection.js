@@ -5,6 +5,7 @@ import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
 import ServiceCard from "./ServiceCard";
 import FullStackDev from "./ServiceComponents/FullStackDev";
+import xsVideo from "../assets/videos/xs_blue_compress.mp4";
 
 const serviceData = [
     {
@@ -29,9 +30,37 @@ const ServicesSection = () => {
     return (
         <div
             style={{
-                background: '#050813'
+                position: 'relative',
+                background: '#050813',
             }}
-        ><Container
+        >
+            <video
+                autoPlay
+                muted
+                loop
+                style={{
+                    position: 'absolute',
+                    left: 0,
+                    bottom:0,
+                    height: '100%',
+                    width: '100%',
+                    opacity: 0.4,
+                    objectFit: "cover",
+                }}
+            >
+                <source src={xsVideo} type="video/mp4" />
+            </video>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to right, rgba(0,0,0,1) 0%, transparent 10%, transparent 90%, rgba(0,0,0,1) 100%)',
+                }}
+            />
+            <Container
             sx={{
                 p: 5,
                 minHeight: '50vh',
@@ -40,8 +69,8 @@ const ServicesSection = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}
-        >
-            <Box sx={{textAlign: 'center', mb: 4}}>
+            >
+            <Box sx={{textAlign: 'center', mb: 4, zIndex: 1}}>
                 <Typography variant={"h2"}>
                     Services
                 </Typography>
@@ -49,7 +78,7 @@ const ServicesSection = () => {
                     Quality Innovation.
                 </Typography>
             </Box>
-            <Divider sx={{background: "gray", width: '40%', mb: 4}}/>
+            <Divider sx={{background: "gray", width: '40%', mb: 4, zIndex: 1}}/>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',
