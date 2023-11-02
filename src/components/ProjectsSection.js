@@ -31,13 +31,11 @@ const ProjectsSection = () => {
     return (
         <div
             style={{
-                paddingTop: '3rem'
             }}
         >
             <Container
                 sx={{
                     p: 5,
-                    mb: 10,
                     minHeight: '70vh',
                     display: 'flex',
                     justifyContent: 'center',
