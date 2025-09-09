@@ -3,13 +3,34 @@ import {Box, Container, Divider, Typography} from '@mui/material';
 import WebIcon from '@mui/icons-material/Web';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import SmsIcon from '@mui/icons-material/Sms';
+import BoltIcon from '@mui/icons-material/Bolt';
+import CloudIcon from '@mui/icons-material/Cloud';
+
 import ServiceCard from "./ServiceCard";
 import FullStackDev from "./ServiceComponents/FullStackDev";
 import xsVideo from "../assets/videos/xs_blue_compress.mp4";
 
+// ORIGINAL 3 (kept) + NEW 3 (added) — each has max 1 short sentence.
 const serviceData = [
     {
-        title: 'Full Stack Development',
+        title: 'AI Receptionist',
+        description: 'Instant WhatsApp/SMS/Voice intake, scheduling, and human handoff.',
+        icon: <SmsIcon fontSize="large" style={{color: 'white'}}/>,
+    },
+    {
+        title: 'Integrations & Automations',
+        description: 'Connect tools and automate workflows with reliability.',
+        icon: <BoltIcon fontSize="large" style={{color: 'white'}}/>,
+    },
+    {
+        title: 'Serverless Delivery',
+        description: 'AWS Lambda, Step Functions, and APIs built for scale.',
+        icon: <CloudIcon fontSize="large" style={{color: 'white'}}/>,
+    },
+
+    {
+        title: 'FullStack Dev',
         description: 'Crafting dynamic and responsive web applications.',
         icon: <WebIcon fontSize="large" style={{color: 'white'}}/>,
         details: <FullStackDev/>
@@ -20,10 +41,11 @@ const serviceData = [
         icon: <VideoLabelIcon fontSize="large" style={{color: 'white'}}/>,
     },
     {
-        title: 'Mobile App Development',
+        title: 'Mobile App Dev',
         description: 'Designing and developing intuitive mobile applications.',
         icon: <MobileFriendlyIcon fontSize="large" style={{color: 'white'}}/>,
     },
+
 ];
 
 const ServicesSection = () => {
@@ -61,35 +83,35 @@ const ServicesSection = () => {
                 }}
             />
             <Container
-            sx={{
-                p: 5,
-                minHeight: '50vh',
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}
+                sx={{
+                    p: 5,
+                    minHeight: '50vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
             >
-            <Box sx={{textAlign: 'center', mb: 4, zIndex: 1}}>
-                <Typography variant={"h2"}>
-                    Services
-                </Typography>
-                <Typography variant={"h3"}>
-                    Quality Innovation.
-                </Typography>
-            </Box>
-            <Divider sx={{background: "gray", width: '40%', mb: 4, zIndex: 1}}/>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1rem',
-                flexWrap: 'wrap'
-            }}>
-                {serviceData.map((service, index) => (
-                    <ServiceCard key={index} project={service}/>
-                ))}
-            </Box>
-        </Container>
+                <Box sx={{textAlign: 'center', mb: 4, zIndex: 1}}>
+                    <Typography variant={"h2"}>
+                        Services
+                    </Typography>
+                    <Typography variant={"h3"}>
+                        Quality Innovation.
+                    </Typography>
+                </Box>
+                <Divider sx={{background: "gray", width: '40%', mb: 4, zIndex: 1}}/>
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '1rem',
+                    flexWrap: 'wrap'
+                }}>
+                    {serviceData.map((service, index) => (
+                        <ServiceCard key={index} project={service}/>
+                    ))}
+                </Box>
+            </Container>
         </div>
 
     );

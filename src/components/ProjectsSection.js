@@ -1,38 +1,36 @@
 import React from 'react';
 import {Box, Container, Divider, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
-import apexNodeImage from '../assets/images/ApexNode.png';
 import optimizerAppImage from '../assets/images/TimetableOptimizer.png';
+// TODO: add a logo or screenshot for UnlockAI here:
+/// import unlockAIImage from '../assets/images/projects/unlockai.png'; // ← PLACEHOLDER (add file)
+
 import ProjectCard from "./ProjectCard";
 
 const projectData = [
     {
+        title: 'UnlockAI',
+        description: 'Multi-agent chat + one-click automations for real-estate teams.',
+        link: 'https://www.useunlock.ai',
+        image: undefined, // replace with unlockAIImage when you add it
+    },
+    {
         title: '2D-BattleRoyale',
         description: 'A thrilling 2D Battle Royale game with intense gameplay.',
         link: 'https://basil-kanaan.github.io/2D-BattleRoyale',
-        image: battleRoyaleImage, // Use the imported image
-    },
-    {
-        title: 'ApexNode',
-        description: 'Outsourcing company with tiered workforce.',
-        link: 'https://basil-kanaan.github.io/ApexNode-public',
-        image: apexNodeImage, // Import the image
+        image: battleRoyaleImage,
     },
     {
         title: 'Timetable Optimizer',
-        description: 'Android App for generating UofT Timetable Schedules.',
+        description: 'Android app for generating UofT timetable schedules.',
         link: 'https://play.google.com/store/apps/details?id=com.github.Bb0lt.utmtimetablebuilder',
-        image: optimizerAppImage, // Import the image
+        image: optimizerAppImage,
     },
-    // Add more projects
 ];
 
 const ProjectsSection = () => {
     return (
-        <div
-            style={{
-            }}
-        >
+        <div>
             <Container
                 sx={{
                     p: 5,
@@ -40,7 +38,7 @@ const ProjectsSection = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     flexDirection: 'column',
-                    alignItems: 'center',
+                    alignItems: 'center'
                 }}
             >
                 <Typography variant={"h2"}>
@@ -49,9 +47,12 @@ const ProjectsSection = () => {
                 <Typography variant={"h3"}>
                     Click to View!
                 </Typography>
-                <Divider sx={{mt: 4, background: "gray", width: '40%', mb: 4}}/>
+                <Divider sx={{mt: 4, background: "gray", width: '40%', mb: 2}}/>
 
-                <br/>
+                <Typography variant="h5" sx={{ m:4, color: "lightblue", display: 'flex', fontWeight: 'bold'}}>
+                    Featured
+                </Typography>
+
                 <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                     {projectData.map((project, index) => (
                         <ProjectCard key={index} project={project}/>
@@ -59,7 +60,6 @@ const ProjectsSection = () => {
                 </Box>
             </Container>
         </div>
-
     );
 };
 
