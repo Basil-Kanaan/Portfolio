@@ -2,17 +2,16 @@ import React from 'react';
 import {Box, Container, Divider, Typography} from '@mui/material';
 import battleRoyaleImage from '../assets/images/2D-BattleRoyale.png';
 import optimizerAppImage from '../assets/images/TimetableOptimizer.png';
-// TODO: add a logo or screenshot for UnlockAI here:
-/// import unlockAIImage from '../assets/images/projects/unlockai.png'; // ← PLACEHOLDER (add file)
+import unlockAIImage from '../assets/images/OneChat.png';
 
 import ProjectCard from "./ProjectCard";
 
 const projectData = [
     {
         title: 'UnlockAI',
-        description: 'Multi-agent chat + one-click automations for real-estate teams.',
+        description: 'Multi-agent chat with integrations + one-click automations for businesses.',
         link: 'https://www.useunlock.ai',
-        image: undefined, // replace with unlockAIImage when you add it
+        image: unlockAIImage, // replace with unlockAIImage when you add it
     },
     {
         title: '2D-BattleRoyale',
