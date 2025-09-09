@@ -64,7 +64,7 @@ const FullStackDev = () => {
             <Box sx={{textAlign: 'center'}}>
                 <Typography variant="body1">
                     Ready to elevate your online identity? Contact us at{' '}
-                    <a href="mailto:basil.kanaan@mail.utoronto.ca">basil.kanaan@mail.utoronto.ca</a>
+                    <a href="mailto:basil.kanaan@alumni.utoronto.ca">basil.kanaan@alumni.utoronto.ca</a>
                 </Typography>
             </Box>
         </Container>

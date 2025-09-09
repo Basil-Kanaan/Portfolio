@@ -14,7 +14,7 @@ const SideBar = () => {
     });
 
     const sendEmail = () => {
-        window.location.href = "mailto:basil.kanaan@mail.utoronto.ca";
+        window.location.href = "mailto:basil.kanaan@alumni.utoronto.ca";
     };
 
     const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
