@@ -40,17 +40,16 @@ const ProjectsSection = () => {
                     alignItems: 'center'
                 }}
             >
-                <Typography variant={"h2"}>
+                <Typography variant={"h2"} sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, fontWeight: 800 }}>
                     Projects
                 </Typography>
-                <Typography variant={"h3"}>
+                <Typography
+                    variant={"h3"}
+                    sx={{ mt: 0.5, fontSize: { xs: '1.25rem', md: '1.6rem' }, fontWeight: 700, color: '#4DA1FF' }}
+                >
                     Click to View!
                 </Typography>
-                <Divider sx={{mt: 4, background: "gray", width: '40%', mb: 2}}/>
-
-                <Typography variant="h5" sx={{ m:4, color: "lightblue", display: 'flex', fontWeight: 'bold'}}>
-                    Featured
-                </Typography>
+                <Divider sx={{mt: 2, background: "gray", width: '40%', mb: 2}}/>
 
                 <Box sx={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                     {projectData.map((project, index) => (
