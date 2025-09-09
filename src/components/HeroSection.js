@@ -8,6 +8,8 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 const images = [suit1, suit1];
 
 const texts = [
+    "AI Orchestration & Serverless",
+    "AI Receptionist Service (WhatsApp/SMS/Voice)",
     "UofT Graduate",
     "Software Engineer"
 ];

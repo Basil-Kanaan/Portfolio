@@ -5,38 +5,22 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {useInView} from 'react-intersection-observer';
 
-
 const AboutMe = () => {
 
     const paragraphVariants = {
         hiddenL: {opacity: 0, x: -50},
-        hiddenR: window.innerWidth >= 960 ? {opacity: 0, x: 50} : {opacity: 0, x: 0},
+        hiddenR: typeof window !== 'undefined' && window.innerWidth >= 960 ? {opacity: 0, x: 50} : {opacity: 0, x: 0},
         hiddenD: {opacity: 0, y: 50},
         hiddenU: {opacity: 0, y: -50},
         hidden: {opacity: 0},
         visible: {opacity: 1, x: 0, y: 0},
     };
 
-
-    const [ref1, inView1] = useInView({
-        threshold: .5
-    });
-
-    const [ref2, inView2] = useInView({
-        threshold: .5
-    });
-
-    const [ref3, inView3] = useInView({
-        threshold: .5
-    });
-
-    const [ref4, inView4] = useInView({
-        threshold: .5
-    });
-
-    const [ref5, inView5] = useInView({
-        threshold: 1
-    });
+    const [ref1, inView1] = useInView({ threshold: .5 });
+    const [ref2, inView2] = useInView({ threshold: .5 });
+    const [ref3, inView3] = useInView({ threshold: .5 });
+    const [ref4, inView4] = useInView({ threshold: .5 });
+    const [ref5, inView5] = useInView({ threshold: 1 });
 
     return (
         <div
@@ -53,11 +37,7 @@ const AboutMe = () => {
                     alignItems: 'center',
                 }}
             >
-                <Box
-                    sx={{
-                        textAlign: 'center',
-                    }}
-                >
+                <Box sx={{ textAlign: 'center' }}>
                     <motion.div
                         ref={ref1}
                         variants={paragraphVariants}
@@ -85,7 +65,7 @@ const AboutMe = () => {
                         style={{textAlign: 'left'}}
                     >
                         <Typography variant={"body3"}>
-                            Hi, I'm a software engineer and I make websites.
+                            Hi, I’m a software engineer. I build clean, fast products — from websites to AI-powered tools.
                         </Typography>
                     </motion.div>
 
@@ -100,8 +80,8 @@ const AboutMe = () => {
                         style={{textAlign: 'left'}}
                     >
                         <Typography variant={"body3"}>
-                            I'm here to make your life easier and turn your ideas into reality. Let's simplify the
-                            process and achieve your visions.
+                            My focus is practical: AI orchestration and serverless systems that make your life easier.
+                            We’ll keep things simple and turn ideas into reality.
                         </Typography>
                     </motion.div>
 
@@ -116,9 +96,7 @@ const AboutMe = () => {
                         style={{textAlign: 'left'}}
                     >
                         <Typography variant={"body3"}>
-                            Beyond code, I'm your trusted partner. You can count on me to deliver your projects with
-                            dedication and integrity.
-                            Saying "yes" to your digital aspirations has never been so easy.
+                            Beyond code, I’m a partner you can trust — clear communication, steady delivery, and integrity from start to finish.
                         </Typography>
                     </motion.div>
 
@@ -132,7 +110,7 @@ const AboutMe = () => {
                         transition={{duration: 0.5}}
                     >
                         <Typography variant={"h4"} sx={{color: "lightblue"}}>
-                            Let's get started!
+                            Let’s get started!
                         </Typography>
                         <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                             <ThumbUpAltIcon sx={{fontSize: '5rem', marginRight: '0.5rem', color: '#4DA1FF'}}/>
