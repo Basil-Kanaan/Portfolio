@@ -32,7 +32,7 @@ const HeroSection = () => {
         const timeouts = [];
 
         setDisplayed('');
-        setIsFading(false); // ensure visible when starting a new line
+        setIsFading(false); // show when starting a new line
 
         const schedule = (fn, delay) => {
             const id = setTimeout(fn, delay);
@@ -61,10 +61,7 @@ const HeroSection = () => {
         };
 
         typeNext();
-
-        return () => {
-            timeouts.forEach(clearTimeout);
-        };
+        return () => timeouts.forEach(clearTimeout);
     }, [currentIndex]);
 
     // Sync portrait swap with the text cycle
@@ -126,6 +123,8 @@ const HeroSection = () => {
                     transform: 'translate(-50%, -50%)',
                     textAlign: 'center',
                     textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
+                    px: 2,
+                    width: '100%',
                 }}
             >
                 <Typography variant="h1">Basil Kanaan</Typography>
@@ -134,7 +133,13 @@ const HeroSection = () => {
                     variant="h4"
                     sx={{
                         mt: 1,
-                        whiteSpace: 'pre',
+                        // WRAP long lines nicely on small screens:
+                        whiteSpace: 'pre-wrap',
+                        overflowWrap: 'anywhere',
+                        wordBreak: 'break-word',
+                        maxWidth: { xs: '90vw', md: '70vw' },
+                        mx: 'auto',
+
                         // fade-down transition
                         opacity: isFading ? 0 : 1,
                         transform: isFading ? 'translateY(12px)' : 'translateY(0)',
