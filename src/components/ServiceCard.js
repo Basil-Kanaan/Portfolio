@@ -8,16 +8,20 @@ const ServiceCard = ({ project }) => {
                 flex: '1 1 250px',
                 maxWidth: 320,
                 borderRadius: 3,
-                // add semi-transparent overlay for opacity
-                background: 'linear-gradient(180deg, rgba(10,15,31,0.5) 0%, rgba(16,24,44,0.9) 100%)',
+                overflow: 'hidden',
+                // brighter surface: light glass over the dark video
+                background:
+                    'linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.08) 100%), rgba(13,20,38,0.55)',
                 color: 'white',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                border: '1px solid rgba(255,255,255,0.18)',
+                boxShadow: '0 12px 32px rgba(13,20,38,0.35)',
+                backdropFilter: 'blur(6px)',
+                transition: 'transform .25s ease, box-shadow .25s ease, border-color .25s ease',
                 '&:hover': {
                     transform: 'translateY(-6px)',
-                    boxShadow: '0 8px 30px rgba(0,0,0,0.6)',
+                    borderColor: 'rgba(77,161,255,0.35)',
+                    boxShadow: '0 18px 40px rgba(13,20,38,0.5)',
                 },
-                backdropFilter: 'blur(4px)', // optional: softens the video behind
             }}
         >
             <CardContent sx={{ textAlign: 'center' }}>
@@ -28,18 +32,18 @@ const ServiceCard = ({ project }) => {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        minHeight: 120,   // ensures all card tops are same height
+                        minHeight: 120,
                         mb: 2,
                     }}
                 >
                     {project.icon}
-                    <Typography variant="h6" sx={{ mt: 1, fontWeight: 600 }}>
+                    <Typography variant="h6" sx={{ mt: 1, fontWeight: 700 }}>
                         {project.title}
                     </Typography>
                 </Box>
 
                 {/* Description */}
-                <Typography variant="body2" sx={{ color: '#cfd8dc' }}>
+                <Typography variant="body2" sx={{ color: 'rgba(234,238,243,0.92)' }}>
                     {project.description}
                 </Typography>
             </CardContent>
