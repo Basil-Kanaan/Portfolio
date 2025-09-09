@@ -22,7 +22,7 @@ const projectData = [
     {
         title: 'Timetable Optimizer',
         description: 'Android app for generating UofT timetable schedules.',
-        link: 'https://play.google.com/store/apps/details?id=com.github.Bb0lt.utmtimetablebuilder',
+        link: undefined,
         image: optimizerAppImage,
     },
 ];
