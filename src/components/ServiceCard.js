@@ -1,79 +1,48 @@
-import React, {useState} from 'react';
-import {Box, Card, CardActionArea, CardContent, CardMedia, Dialog, DialogContent, Typography,} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React from 'react';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 
-const ServiceCard = ({project}) => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-    const togglePopup = () => {
-        if (project.details) {
-            setIsPopupOpen(!isPopupOpen)
-        }
-    };
-
+const ServiceCard = ({ project }) => {
     return (
         <Card
             sx={{
-                width: 280,
-                height: 200,
-                m: 2,
-                boxShadow: '0 0 10px rgba(100, 100, 100, 0.7)',
-                transition: 'transform 0.3s, box-shadow 0.3s',
+                flex: '1 1 250px',
+                maxWidth: 320,
+                borderRadius: 3,
+                // add semi-transparent overlay for opacity
+                background: 'linear-gradient(180deg, rgba(10,15,31,0.5) 0%, rgba(16,24,44,0.9) 100%)',
+                color: 'white',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
                 '&:hover': {
-                    transform: 'scale(1.05)',
-                    boxShadow: '0 0 10px rgba(0, 255, 255, 0.8)',
+                    transform: 'translateY(-6px)',
+                    boxShadow: '0 8px 30px rgba(0,0,0,0.6)',
                 },
+                backdropFilter: 'blur(4px)', // optional: softens the video behind
             }}
         >
-            <CardActionArea
-                onClick={togglePopup}
-                sx={{height: '100%', display: 'flex', flexDirection: 'column'}}
-            >
-                <CardMedia
-                    component="div"
+            <CardContent sx={{ textAlign: 'center' }}>
+                {/* Top section — fixed height for consistency */}
+                <Box
                     sx={{
-                        background:
-                            'linear-gradient(to bottom, rgba(57,116,133,1) 0%, rgba(21,24,52,1) 100%)',
                         display: 'flex',
-                        justifyContent: 'center',
+                        flexDirection: 'column',
                         alignItems: 'center',
-                        height: '70%',
-                        width: '100%',
+                        justifyContent: 'center',
+                        minHeight: 120,   // ensures all card tops are same height
+                        mb: 2,
                     }}
                 >
                     {project.icon}
-                </CardMedia>
-
-                <CardContent
-                    sx={{
-                        flex: 1,
-                        backgroundColor: '#ffffff',
-                        textAlign: 'center',
-                        boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)',
-                    }}
-                >
-                    <Typography variant="h6" sx={{fontWeight: 'bold'}}>
+                    <Typography variant="h6" sx={{ mt: 1, fontWeight: 600 }}>
                         {project.title}
                     </Typography>
-                    <Typography>{project.description}</Typography>
-                    {project.details && (
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <ExpandMoreIcon/>
-                        </Box>
-                    )}
-                </CardContent>
-            </CardActionArea>
-            <Dialog open={isPopupOpen} onClose={togglePopup} maxWidth="md" fullWidth>
-                <DialogContent>
-                    {project.details}
-                </DialogContent>
-            </Dialog>
+                </Box>
+
+                {/* Description */}
+                <Typography variant="body2" sx={{ color: '#cfd8dc' }}>
+                    {project.description}
+                </Typography>
+            </CardContent>
         </Card>
     );
 };
