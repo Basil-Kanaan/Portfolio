@@ -1,150 +1,136 @@
-import React, {useState} from 'react';
-import {Box, Button, Container, IconButton, Link, Paper, TextField, Typography,} from '@mui/material';
-import {Email, GitHub, Instagram, LinkedIn,} from '@mui/icons-material';
+import React from 'react';
+import { Box, Container, Paper, Stack, TextField, Typography, Button } from '@mui/material';
 
-const ContactSection = () => {
-    const iconSize = '2rem';
-    const iconColor = 'white';
-
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        request: '',
-    });
-
-    const handleInputChange = (event) => {
-        const {name, value} = event.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const sendEmail = () => {
-        // Construct the email body with form data and send it
-        const {name, email, request} = formData;
-        const emailBody = `Name: ${name}\nEmail: ${email}\nRequest: ${request}`;
-        window.location.href = `mailto:basil.kanaan@mail.utoronto.ca?subject=Contact Request&body=${encodeURIComponent(emailBody)}`;
-    };
-
+export default function ContactSection() {
     return (
-        <div style={{background: '#050813'}}>
+        <Box
+            sx={{
+                position: 'relative',
+                minHeight: { xs: '100vh', md: '90vh' },
+                background: 'radial-gradient(1200px 600px at 10% -10%, #0f244a 0%, rgba(5,8,19,1) 40%), #050813',
+                // center the whole column inside this section
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                px: 2,
+            }}
+        >
             <Container
+                maxWidth="md"
                 sx={{
-                    p: 5,
-                    minHeight: '100vh',
+                    // center heading + card + socials as a column
                     display: 'flex',
-                    justifyContent: 'center',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: { xs: 3, md: 4 },
                 }}
             >
-                <Typography variant="h2" sx={{mb: 5}}>
+                <Typography
+                    variant="h2"
+                    sx={{
+                        color: 'white',
+                        textAlign: 'center',
+                        fontSize: { xs: '2.25rem', md: '3.25rem' },
+                        fontWeight: 800,
+                    }}
+                >
                     Contact
                 </Typography>
 
-
                 <Paper
-                    elevation={5}
+                    elevation={0}
                     sx={{
-                        padding: '10%',
-                        textAlign: 'center',
-                        background: 'rgba(255, 255, 255, 0.9)',
-                        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
-                        borderRadius: '12px',
+                        p: { xs: 3, md: 5 },
+                        borderRadius: 3,
+                        maxWidth: 720,
+                        width: '100%',
+                        mx: 'auto',
+                        backdropFilter: 'blur(8px)',
+                        background: 'linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05))',
+                        border: '1px solid rgba(255,255,255,.12)',
                     }}
                 >
-                    <Box sx={{mt: 4}}>
-                        <Typography variant="h4" sx={{textAlign: "left"}}>
-                            Email me
-                        </Typography>
-                        <form>
-                            <TextField
-                                fullWidth
-                                label="Name"
-                                variant="outlined"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                sx={{mt: 2}}
-                            />
-                            <TextField
-                                fullWidth
-                                label="Email"
-                                variant="outlined"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                sx={{mt: 2}}
-                            />
-                            <TextField
-                                fullWidth
-                                label="Request"
-                                variant="outlined"
-                                multiline
-                                rows={4}
-                                name="request"
-                                value={formData.request}
-                                onChange={handleInputChange}
-                                sx={{mt: 2}}
-                            />
+                    <Typography variant="h5" sx={{ color: 'white', mb: 2, fontWeight: 700 }}>
+                        Email me
+                    </Typography>
+
+                    <Stack spacing={2.5}>
+                        <TextField
+                            label="Name"
+                            fullWidth
+                            variant="outlined"
+                            InputLabelProps={{ sx: { color: 'rgba(255,255,255,.85)' } }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    color: 'white',
+                                    backgroundColor: 'rgba(255,255,255,.04)',
+                                    '& fieldset': { borderColor: 'rgba(255,255,255,.18)' },
+                                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,.28)' },
+                                    '&.Mui-focused fieldset': { borderColor: 'rgba(88,175,255,.9)' },
+                                },
+                            }}
+                        />
+                        <TextField
+                            type="email"
+                            label="Email"
+                            fullWidth
+                            variant="outlined"
+                            InputLabelProps={{ sx: { color: 'rgba(255,255,255,.85)' } }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    color: 'white',
+                                    backgroundColor: 'rgba(255,255,255,.04)',
+                                    '& fieldset': { borderColor: 'rgba(255,255,255,.18)' },
+                                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,.28)' },
+                                    '&.Mui-focused fieldset': { borderColor: 'rgba(88,175,255,.9)' },
+                                },
+                            }}
+                        />
+                        <TextField
+                            label="Request"
+                            fullWidth
+                            multiline
+                            minRows={4}
+                            variant="outlined"
+                            InputLabelProps={{ sx: { color: 'rgba(255,255,255,.85)' } }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    color: 'white',
+                                    backgroundColor: 'rgba(255,255,255,.04)',
+                                    '& fieldset': { borderColor: 'rgba(255,255,255,.18)' },
+                                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,.28)' },
+                                    '&.Mui-focused fieldset': { borderColor: 'rgba(88,175,255,.9)' },
+                                },
+                            }}
+                        />
+
+                        <Box sx={{ textAlign: 'center', pt: 1 }}>
                             <Button
+                                size="large"
                                 variant="contained"
-                                color="primary"
-                                onClick={sendEmail}
-                                sx={{mt: 2}}
+                                sx={{
+                                    px: 4,
+                                    py: 1.2,
+                                    borderRadius: 2,
+                                    fontWeight: 700,
+                                    textTransform: 'none',
+                                    background: 'linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%)',
+                                    boxShadow: '0 10px 24px rgba(0, 162, 255, .25)',
+                                    '&:hover': { boxShadow: '0 14px 30px rgba(0, 162, 255, .35)' },
+                                }}
                             >
                                 Send
                             </Button>
-                        </form>
-                    </Box>
+                        </Box>
+                    </Stack>
                 </Paper>
-                <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 3}}>
-                    <IconButton
-                        component={Link}
-                        href="https://www.instagram.com/basil.dev/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        sx={{m: 1}}
 
-                    >
-                        <Instagram className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
-                    </IconButton>
-                    <IconButton
-                        component={Link}
-                        href="https://www.linkedin.com/in/basil-kanaan/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        sx={{m: 1}}
-                        className={"sidebar-link"}
-                    >
-                        <LinkedIn className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
-                    </IconButton>
-                    <IconButton
-                        component={Link}
-                        href="https://github.com/basil-kanaan"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                        sx={{m: 1}}
-                        className={"sidebar-link"}
-                    >
-                        <GitHub className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
-                    </IconButton>
-                    <IconButton
-                        aria-label="Email"
-                        sx={{m: 1}}
-                        onClick={sendEmail}
-                        className={"sidebar-link"}
-                    >
-                        <Email className={"sidebar-link"} sx={{color: iconColor, fontSize: iconSize}}/>
-                    </IconButton>
-                </Box>
+                {/* Socials row */}
+                <Stack direction="row" spacing={3} justifyContent="center">
+                    {/* put your social icon buttons here */}
+                </Stack>
             </Container>
-        </div>
+        </Box>
     );
-};
-
-export default ContactSection;
+}
