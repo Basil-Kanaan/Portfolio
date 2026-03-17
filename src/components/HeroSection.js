@@ -93,18 +93,18 @@ const HeroSection = () => {
                 <source src={heroVideo} type="video/mp4" />
             </video>
 
-            {/* Portrait */}
-            <img
-                src={images[currentImageIndex]}
-                alt="Overlay"
-                height="94%"
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: '10%',
-                    zIndex: 0,
-                }}
-            />
+            {/*/!* Portrait *!/*/}
+            {/*<img*/}
+            {/*    src={images[currentImageIndex]}*/}
+            {/*    alt="Overlay"*/}
+            {/*    height="94%"*/}
+            {/*    style={{*/}
+            {/*        position: 'absolute',*/}
+            {/*        bottom: 0,*/}
+            {/*        left: '10%',*/}
+            {/*        zIndex: 0,*/}
+            {/*    }}*/}
+            {/*/>*/}
 
             {/* Dark-to-clear gradient for readability */}
             <Box
