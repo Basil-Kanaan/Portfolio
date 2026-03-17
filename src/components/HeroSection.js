@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import suit1 from '../assets/images/suit1.png';
+// import suit1 from '../assets/images/suit1.png';
 import heroVideo from '../assets/videos/heroBG.mp4';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
-const images = [suit1, suit1];
+// const images = [suit1, suit1];
 
 const texts = [
     "AI Orchestration & Serverless",
@@ -22,7 +22,7 @@ const FADE_DURATION = 450; // fade-out duration (ms)
 const HeroSection = () => {
     const [displayed, setDisplayed] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
     // Typing effect with hold → fade-down → advance
@@ -64,10 +64,10 @@ const HeroSection = () => {
         return () => timeouts.forEach(clearTimeout);
     }, [currentIndex]);
 
-    // Sync portrait swap with the text cycle
-    useEffect(() => {
-        setCurrentImageIndex(prev => (prev + 1) % images.length);
-    }, [currentIndex]);
+    // // Sync portrait swap with the text cycle
+    // useEffect(() => {
+    //     setCurrentImageIndex(prev => (prev + 1) % images.length);
+    // }, [currentIndex]);
 
     const scrollToNextSection = () => {
         window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
