@@ -1,5 +1,5 @@
 // Builds public/og.jpg (1200×630, the link preview image) from the hero's own drawing of the
-// name, the site's type and colours, and the toned petal texture from the About section.
+// name, the site's type and colours, and the toned white rose from the About section.
 // Run after changing the name drawing or the images: node scripts/og.mjs
 import { chromium } from 'playwright';
 import sharp from 'sharp';
@@ -18,7 +18,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   body { position: relative; font-family: Archivo, sans-serif; color: #eceae5; -webkit-font-smoothing: antialiased; }
   p, h1 { margin: 0; }
   .texture { position: absolute; inset: 0 0 0 auto; width: 640px;
-    background: url(${dataUri('public/img/petals-946.webp', 'image/webp')}) 50% 30% / cover;
+    background: url(${dataUri('public/img/white-rose-1045.webp', 'image/webp')}) 50% 40% / cover;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); }
   .copy { position: relative; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; padding: 72px 0 60px 72px; }
   .role { font-size: 27px; font-weight: 500; color: #a6a29a; }

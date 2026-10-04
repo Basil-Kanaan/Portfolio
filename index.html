@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://basil-kanaan.github.io/Portfolio/og.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Basil Kanaan, software engineer based in Brampton, Ontario: the name on type guides beside a toned photo of rose petals." />
+    <meta property="og:image:alt" content="Basil Kanaan, software engineer based in Brampton, Ontario: the name on type guides beside a toned photo of a white rose." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -75,19 +75,19 @@
       <section class="about" id="about" aria-label="About" data-about>
         <div class="about__texture" aria-hidden="true">
           <picture>
-            <source type="image/avif" srcset="/img/petals-560.avif 560w, /img/petals-946.avif 946w" sizes="(min-width: 768px) 56vw, 100vw" />
-            <source type="image/webp" srcset="/img/petals-560.webp 560w, /img/petals-946.webp 946w" sizes="(min-width: 768px) 56vw, 100vw" />
-            <img src="/img/petals-946.webp" width="946" height="1500" alt="" loading="lazy" fetchpriority="low" decoding="async" data-parallax="7" />
+            <source type="image/avif" srcset="/img/white-rose-560.avif 560w, /img/white-rose-1045.avif 1045w" sizes="(min-width: 768px) 56vw, 100vw" />
+            <source type="image/webp" srcset="/img/white-rose-560.webp 560w, /img/white-rose-1045.webp 1045w" sizes="(min-width: 768px) 56vw, 100vw" />
+            <img src="/img/white-rose-1045.webp" width="1045" height="1500" alt="" loading="lazy" fetchpriority="low" decoding="async" data-parallax="7" />
           </picture>
         </div>
         <div class="about__inner wrap grid">
           <p class="about__statement" data-statement>I build serverless backends, AI systems, and carefully designed web front ends. I was the founding engineer and acting CTO at an AI startup, then built an AI receptionist platform on my own. Now I run a web studio.</p>
           <figure class="about__plate" data-plate>
             <picture>
-              <source type="image/avif" srcset="/img/blush-rose-480.avif 480w, /img/blush-rose-800.avif 800w, /img/blush-rose-1045.avif 1045w" sizes="(min-width: 1200px) 30vw, (min-width: 768px) 34vw, 75vw" />
-              <source type="image/webp" srcset="/img/blush-rose-480.webp 480w, /img/blush-rose-800.webp 800w, /img/blush-rose-1045.webp 1045w" sizes="(min-width: 1200px) 30vw, (min-width: 768px) 34vw, 75vw" />
-              <img src="/img/blush-rose-800.webp" width="1045" height="1393" loading="lazy" fetchpriority="low" decoding="async"
-                alt="A pale blush rose in full bloom among green leaves and buds." />
+              <source type="image/avif" srcset="/img/pink-roses-480.avif 480w, /img/pink-roses-800.avif 800w, /img/pink-roses-946.avif 946w" sizes="(min-width: 1200px) 30vw, (min-width: 768px) 34vw, 75vw" />
+              <source type="image/webp" srcset="/img/pink-roses-480.webp 480w, /img/pink-roses-800.webp 800w, /img/pink-roses-946.webp 946w" sizes="(min-width: 1200px) 30vw, (min-width: 768px) 34vw, 75vw" />
+              <img src="/img/pink-roses-800.webp" width="946" height="1261" loading="lazy" fetchpriority="low" decoding="async"
+                alt="Pink roses up close, with raindrops on the petals." />
             </picture>
           </figure>
         </div>
@@ -99,19 +99,13 @@
           <h2 class="section-title" id="work-title" data-split>Selected work</h2>
         </div>
         <div class="work__stage wrap" data-work-stage>
-          <ol class="work__index" aria-label="Projects" data-work-index>
-            <li><button type="button" data-step="0"><span class="num">01</span>McZee</button></li>
-            <li><button type="button" data-step="1"><span class="num">02</span>Aonagi Katana House</button></li>
-            <li><button type="button" data-step="2"><span class="num">03</span>Cedarvell Custom Homes</button></li>
-            <li><button type="button" data-step="3"><span class="num">04</span>Lorne &amp; Mercer</button></li>
-            <li><button type="button" data-step="4"><span class="num">05</span>Qurra</button></li>
-          </ol>
           <ol class="projects" data-projects>
             <li class="project" data-project>
               <article aria-labelledby="project-mczee">
                 <div class="project__media">
+                  <noscript><a class="media-poster" href="/Portfolio/media/mczee.mp4"><img src="/Portfolio/media/mczee-poster.webp" width="1280" height="800" alt="Scroll recording of the McZee site, mczee.ca" /><span>Play recording</span></a></noscript>
                   <video muted playsinline controls preload="none" width="1280" height="800"
-                    poster="/media/mczee-poster.webp" aria-label="Scroll recording of the McZee site, mczee.ca">
+                    data-poster="media/mczee-poster.webp" aria-label="Scroll recording of the McZee site, mczee.ca">
                     <source src="/media/mczee.webm" type="video/webm" />
                     <source src="/media/mczee.mp4" type="video/mp4" />
                   </video>
@@ -128,8 +122,9 @@
             <li class="project" data-project>
               <article aria-labelledby="project-aonagi">
                 <div class="project__media">
+                  <noscript><a class="media-poster" href="/Portfolio/media/aonagi.mp4"><img src="/Portfolio/media/aonagi-poster.webp" width="1280" height="800" alt="Scroll recording of the Aonagi Katana House storefront" /><span>Play recording</span></a></noscript>
                   <video muted playsinline controls preload="none" width="1280" height="800"
-                    poster="/media/aonagi-poster.webp" aria-label="Scroll recording of the Aonagi Katana House storefront">
+                    data-poster="media/aonagi-poster.webp" aria-label="Scroll recording of the Aonagi Katana House storefront">
                     <source src="/media/aonagi.webm" type="video/webm" />
                     <source src="/media/aonagi.mp4" type="video/mp4" />
                   </video>
@@ -146,8 +141,9 @@
             <li class="project" data-project>
               <article aria-labelledby="project-cedarvell">
                 <div class="project__media">
+                  <noscript><a class="media-poster" href="/Portfolio/media/cedarvell.mp4"><img src="/Portfolio/media/cedarvell-poster.webp" width="1280" height="800" alt="Scroll recording of the Cedarvell Custom Homes site" /><span>Play recording</span></a></noscript>
                   <video muted playsinline controls preload="none" width="1280" height="800"
-                    poster="/media/cedarvell-poster.webp" aria-label="Scroll recording of the Cedarvell Custom Homes site">
+                    data-poster="media/cedarvell-poster.webp" aria-label="Scroll recording of the Cedarvell Custom Homes site">
                     <source src="/media/cedarvell.webm" type="video/webm" />
                     <source src="/media/cedarvell.mp4" type="video/mp4" />
                   </video>
@@ -164,8 +160,9 @@
             <li class="project" data-project>
               <article aria-labelledby="project-lorne">
                 <div class="project__media">
+                  <noscript><a class="media-poster" href="/Portfolio/media/lorne-mercer.mp4"><img src="/Portfolio/media/lorne-mercer-poster.webp" width="1280" height="800" alt="Scroll recording of the Lorne &amp; Mercer site" /><span>Play recording</span></a></noscript>
                   <video muted playsinline controls preload="none" width="1280" height="800"
-                    poster="/media/lorne-mercer-poster.webp" aria-label="Scroll recording of the Lorne &amp; Mercer site">
+                    data-poster="media/lorne-mercer-poster.webp" aria-label="Scroll recording of the Lorne &amp; Mercer site">
                     <source src="/media/lorne-mercer.webm" type="video/webm" />
                     <source src="/media/lorne-mercer.mp4" type="video/mp4" />
                   </video>
@@ -182,8 +179,9 @@
             <li class="project" data-project>
               <article aria-labelledby="project-qurra">
                 <div class="project__media">
+                  <noscript><a class="media-poster" href="/Portfolio/media/qurra.mp4"><img src="/Portfolio/media/qurra-poster.webp" width="1280" height="800" alt="Scroll recording of the Qurra studio site, getqurra.com" /><span>Play recording</span></a></noscript>
                   <video muted playsinline controls preload="none" width="1280" height="800"
-                    poster="/media/qurra-poster.webp" aria-label="Scroll recording of the Qurra studio site, getqurra.com">
+                    data-poster="media/qurra-poster.webp" aria-label="Scroll recording of the Qurra studio site, getqurra.com">
                     <source src="/media/qurra.webm" type="video/webm" />
                     <source src="/media/qurra.mp4" type="video/mp4" />
                   </video>
@@ -198,7 +196,6 @@
               </article>
             </li>
           </ol>
-          <p class="work__counter" aria-hidden="true"><span data-work-current>01</span> / 05</p>
         </div>
       </section>
 
@@ -217,8 +214,9 @@
           </div>
           <div class="system__aside">
             <div class="system__media" data-inview-video>
+              <noscript><a class="media-poster" href="/Portfolio/media/areteos.mp4"><img src="/Portfolio/media/areteos-poster.webp" width="1280" height="800" alt="Scroll recording of the Areté OS landing page" /><span>Play recording</span></a></noscript>
               <video muted playsinline controls preload="none" width="1280" height="800"
-                poster="/media/areteos-poster.webp" aria-label="Scroll recording of the Areté OS landing page">
+                data-poster="media/areteos-poster.webp" aria-label="Scroll recording of the Areté OS landing page">
                 <source src="/media/areteos.webm" type="video/webm" />
                 <source src="/media/areteos.mp4" type="video/mp4" />
               </video>

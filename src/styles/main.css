@@ -97,8 +97,7 @@ html {
   scroll-padding-top: var(--header-h);
   scrollbar-color: #3a3833 var(--ground);
 }
-html.lenis, html.lenis body { height: auto; }
-.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+html.menu-open { overflow: hidden; }
 
 body {
   margin: 0;
@@ -233,6 +232,8 @@ a { color: inherit; }
   border-bottom-color: var(--hairline);
 }
 .site-header.is-hidden { transform: translateY(-100%); }
+/* Without JS the header never turns solid, so it stays at the top of the page. */
+html:not(.js) .site-header { position: absolute; }
 .site-header__inner {
   height: 100%;
   max-width: calc(var(--maxw) + 2 * var(--margin));
@@ -462,7 +463,7 @@ a { color: inherit; }
   position: relative;
   padding-block: var(--section-pad);
 }
-/* A toned enlargement of rose petals bleeds off the right edge and fades into the ground
+/* A toned photo of a white rose bleeds off the right edge and fades into the ground
    on every other side, so it reads as light falling on the page rather than a frame. */
 .about__texture {
   position: absolute;
@@ -552,9 +553,6 @@ a { color: inherit; }
 .work { padding-top: var(--section-pad); }
 .work .section-title { margin-bottom: clamp(40px, 7vh, 88px); }
 
-.work__index { display: none; }
-.work__counter { display: none; }
-
 .projects { display: grid; gap: clamp(64px, 10vh, 112px); }
 .project article {
   display: grid;
@@ -572,7 +570,25 @@ a { color: inherit; }
   background: var(--raised);
   outline: 1px solid var(--hairline);
 }
-.project__media video { width: 100%; height: 100%; object-fit: cover; }
+.project__media video { position: relative; width: 100%; height: 100%; object-fit: cover; }
+/* Without JS the posters are not set on the videos (JS sets them near view), so each
+   recording is a poster image linking to the file, opened in the browser's own player. */
+html:not(.js) .project__media video,
+html:not(.js) .system__media video { display: none; }
+.media-poster { position: absolute; inset: 0; display: block; }
+.media-poster img { width: 100%; height: 100%; object-fit: cover; }
+.media-poster span {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 14px;
+  border: 1px solid rgb(236 234 229 / 0.28);
+  border-radius: 999px;
+  background: rgb(16 15 13 / 0.78);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
 .project__text { grid-column: 1 / span 4; grid-row: 1; padding-bottom: 4px; }
 .project__num { font-weight: 500; color: var(--stone); font-variant-numeric: tabular-nums; margin-bottom: 18px; }
 .project__title {
@@ -616,73 +632,6 @@ a { color: inherit; }
 }
 .media-toggle:hover { border-color: var(--brass); }
 .media-toggle svg { width: 10px; height: 10px; fill: currentColor; }
-
-/* Desktop: pinned stage. JS adds .is-pinned when the stage is enhanced. */
-@media (min-width: 1024px) {
-  .work__stage.is-pinned {
-    position: relative;
-    height: 100svh;
-    padding-top: calc(var(--header-h) + clamp(16px, 4vh, 48px));
-    padding-bottom: clamp(24px, 5vh, 56px);
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-template-rows: 1fr auto;
-    column-gap: var(--gutter);
-  }
-  .is-pinned .projects {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    display: block;
-    position: relative;
-  }
-  .is-pinned .project { position: absolute; inset: 0; }
-  .is-pinned .project article { height: 100%; align-items: center; }
-  .is-pinned .project__media {
-    align-self: center;
-    clip-path: inset(100% 0 0 0);
-  }
-  .is-pinned .project.is-active .project__media { clip-path: inset(0 0 0 0); }
-  .is-pinned .project__text { align-self: center; }
-  .is-pinned .project:not(.is-active) .project__text { pointer-events: none; }
-  .is-pinned .work__index {
-    display: flex;
-    grid-column: 1 / span 12;
-    grid-row: 2;
-    gap: clamp(16px, 2vw, 32px);
-    flex-wrap: wrap;
-    padding-top: 20px;
-    border-top: 1px solid var(--hairline);
-  }
-  .work__index button {
-    display: inline-flex;
-    gap: 10px;
-    align-items: baseline;
-    min-height: 32px;
-    padding: 0;
-    background: none;
-    border: 0;
-    color: var(--stone);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s var(--ease-p3);
-  }
-  .work__index .num { font-variant-numeric: tabular-nums; }
-  .work__index button:hover { color: var(--ink); }
-  .work__index button[aria-current='true'] { color: var(--ink); }
-  .work__index button[aria-current='true'] .num { color: var(--brass); }
-  .is-pinned .work__counter {
-    display: block;
-    position: absolute;
-    right: var(--margin);
-    bottom: clamp(24px, 5vh, 56px);
-    padding-top: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--stone);
-    font-variant-numeric: tabular-nums;
-  }
-}
 
 @media (max-width: 1199px) {
   .project article { grid-template-columns: repeat(8, minmax(0, 1fr)); }
@@ -731,7 +680,7 @@ a { color: inherit; }
   background: var(--raised);
   outline: 1px solid var(--hairline);
 }
-.system__media video { width: 100%; height: 100%; object-fit: cover; }
+.system__media video { position: relative; width: 100%; height: 100%; object-fit: cover; }
 .system__stack {
   grid-column: 1 / span 9;
   display: grid;

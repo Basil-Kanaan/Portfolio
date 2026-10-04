@@ -20,9 +20,9 @@ fs.mkdirSync(MEDIA, { recursive: true });
 const kb = (f) => `${(fs.statSync(f).size / 1024).toFixed(0)} KB`;
 
 // Flowers (the owner's own photos; sources are 946-1045 x 2000 phone shots, no metadata).
-//   - petals and fleabane: textures, toned to a warm duotone between the page's ground and a
-//     dark warm grey, so they sit under type at AA contrast without a runtime filter.
-//   - blush rose: the one photo kept in full colour, cropped 3:4.
+//   - white rose and fleabane: textures, toned to a warm duotone between the page's ground
+//     and a dark warm grey, so they sit under type at AA contrast without a runtime filter.
+//   - pink roses: the one photo kept in full colour, cropped 3:4.
 const FLOWERS = path.join(SRC, 'flowers');
 const LO = [16, 15, 13]; // --ground
 
@@ -53,10 +53,10 @@ async function variants(name, buf, srcWidth, widths, { avifQ = 52, webpQ = 76 } 
   }
 }
 
-await variants('petals', await duotone('petals.webp', { left: 0, top: 300, width: 946, height: 1500 }, [150, 142, 130], 3.0), 946, [560, 946]);
+await variants('white-rose', await duotone('white-rose.webp', { left: 0, top: 200, width: 1045, height: 1500 }, [150, 142, 130], 3.0), 1045, [560, 1045]);
 await variants('fleabane', await duotone('fleabane.webp', { left: 0, top: 200, width: 946, height: 1500 }, [120, 115, 106], 2.6), 946, [560, 946]);
-const rose = await sharp(path.join(FLOWERS, 'blush-rose.webp')).extract({ left: 0, top: 200, width: 1045, height: 1393 }).png().toBuffer();
-await variants('blush-rose', rose, 1045, [480, 800, 1045], { avifQ: 58, webpQ: 80 });
+const roses = await sharp(path.join(FLOWERS, 'pink-roses.webp')).extract({ left: 0, top: 100, width: 946, height: 1261 }).png().toBuffer();
+await variants('pink-roses', roses, 946, [480, 800, 946], { avifQ: 58, webpQ: 80 });
 
 // Project captures.
 const caps = path.join(SRC, 'captures');
