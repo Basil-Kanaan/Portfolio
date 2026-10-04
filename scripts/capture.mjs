@@ -33,6 +33,9 @@ const SCROLL_MS = Number(process.env.SCROLL_MS || 6400);
 const HOLD_END_MS = 900;
 const SCROLL_VIEWPORTS = Number(process.env.SCROLL_VIEWPORTS || 3.1);
 const MAX_BYTES = 2 * 1024 * 1024 - 48 * 1024; // a little headroom under 2 MB
+// Standard video range and colours. The frames are full-range RGB screenshots, and Chrome
+// (154) refuses to decode full-range VP9, so every encode is limited range, BT.709.
+const COLOR = ['-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709'];
 
 const only = process.argv.slice(2);
 const sites = only.length ? SITES.filter((s) => only.includes(s.slug)) : SITES;
@@ -117,7 +120,8 @@ for (const site of sites) {
   fs.writeFileSync(list, lines.join('\n'));
   const master = path.join(dir, 'master.mp4');
   ff(['-f', 'concat', '-safe', '0', '-i', list, '-fps_mode', 'cfr', '-r', '30',
-    '-vf', 'scale=1280:800:flags=lanczos,format=yuv420p', '-c:v', 'libx264', '-preset', 'slow', '-crf', '8', master]);
+    '-vf', 'scale=1280:800:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p', ...COLOR,
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', '8', master]);
 
   const dur = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', master]).toString());
   const mp4 = path.join(MEDIA, `${site.slug}.mp4`);
@@ -125,11 +129,11 @@ for (const site of sites) {
   encodeUnder(mp4, 1750, (kbps, pass, log) => [
     '-i', master, '-an', '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p',
     '-b:v', `${kbps}k`, '-maxrate', `${Math.round(kbps * 1.6)}k`, '-bufsize', `${kbps * 2}k`,
-    '-pass', String(pass), '-passlogfile', log, '-movflags', '+faststart',
+    '-pass', String(pass), '-passlogfile', log, '-movflags', '+faststart', ...COLOR,
   ]);
   encodeUnder(webm, 1500, (kbps, pass, log) => [
     '-i', master, '-an', '-c:v', 'libvpx-vp9', '-b:v', `${kbps}k`, '-row-mt', '1', '-deadline', 'good',
-    '-cpu-used', pass === 1 ? '4' : '1', '-pass', String(pass), '-passlogfile', log,
+    '-cpu-used', pass === 1 ? '4' : '1', '-pass', String(pass), '-passlogfile', log, ...COLOR,
   ]);
   // Poster = first frame of the recording, so pressing play never jumps.
   ff(['-i', master, '-frames:v', '1', path.join(OUT, `${site.slug}-poster.png`)]);
