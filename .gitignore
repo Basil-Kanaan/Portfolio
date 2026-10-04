@@ -1,27 +1,14 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
+node_modules/
+dist/
+.capture-tmp/
+*.log
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-/.idea/aws.xml
-/.idea/easycode.ignore
+.env*
+.idea/
+.vscode/
+# local leftovers from the old Create React App setup
+/build/
 /Portfolio.rar
 /src/assets/videos/xs_blue.mp4
+
+.verify/
