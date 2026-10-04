@@ -1,5 +1,5 @@
 // Builds the web-ready images in public/ from the sources in assets-src/.
-//   - flowers: two duotone textures and one colour photo, AVIF + WebP at several widths
+//   - flowers: the white rose texture, AVIF + WebP at two widths
 //   - project captures: WebP posters (1280 and 640 wide). scripts/capture.mjs writes the
 //     recordings themselves straight to public/media.
 //   - favicon PNG for Apple devices
@@ -19,10 +19,9 @@ fs.mkdirSync(MEDIA, { recursive: true });
 
 const kb = (f) => `${(fs.statSync(f).size / 1024).toFixed(0)} KB`;
 
-// Flowers (the owner's own photos; sources are 946-1045 x 2000 phone shots, no metadata).
-//   - white rose and fleabane: textures, toned to a warm duotone between the page's ground
-//     and a dark warm grey, so they sit under type at AA contrast without a runtime filter.
-//   - pink roses: the one photo kept in full colour, cropped 3:4.
+// The About texture: the owner's own photo of a white rose (a 1045 x 2000 phone shot, no
+// metadata), toned to a warm duotone between the page's ground and a dark warm grey, so it
+// sits under type at AA contrast without a runtime filter.
 const FLOWERS = path.join(SRC, 'flowers');
 const LO = [16, 15, 13]; // --ground
 
@@ -54,9 +53,6 @@ async function variants(name, buf, srcWidth, widths, { avifQ = 52, webpQ = 76 } 
 }
 
 await variants('white-rose', await duotone('white-rose.webp', { left: 0, top: 200, width: 1045, height: 1500 }, [150, 142, 130], 3.0), 1045, [560, 1045]);
-await variants('fleabane', await duotone('fleabane.webp', { left: 0, top: 200, width: 946, height: 1500 }, [120, 115, 106], 2.6), 946, [560, 946]);
-const roses = await sharp(path.join(FLOWERS, 'pink-roses.webp')).extract({ left: 0, top: 100, width: 946, height: 1261 }).png().toBuffer();
-await variants('pink-roses', roses, 946, [480, 800, 946], { avifQ: 58, webpQ: 80 });
 
 // Project captures.
 const caps = path.join(SRC, 'captures');
