@@ -2,11 +2,11 @@
 
 Personal site, live at **https://basil-kanaan.github.io/Portfolio/**.
 
-A static Vite + TypeScript build. Motion runs on GSAP (ScrollTrigger, SplitText, DrawSVG) and Lenis smooth scrolling. The page is complete without JavaScript, and the hero intro is CSS only. The motion bundle loads after first paint. With reduced motion everything is static.
+A static Vite + TypeScript build. Motion runs on GSAP (ScrollTrigger, SplitText, DrawSVG). Scrolling is native: nothing smooths the wheel or pins a section. The page is complete without JavaScript, and the hero intro is CSS only. The motion bundle loads after first paint. With reduced motion everything is static.
 
 The hero draws the name the way a type designer builds it: metric guides run out across the page, each letter is traced with its points and handles, and then it fills. The drawing is an inline SVG made from the font's own outlines and kerning by `scripts/hero-name.py`, so it plays from the first frame. On a desktop the pointer is a loupe that shows the construction under the fill, and scrolling away drains the name back to its outlines.
 
-The About section sets the statement beside the site's only colour photo, a blush rose laid down like a print with crop marks, over a toned enlargement of rose petals. A toned photo of wild fleabane closes the page above the footer. All three are the owner's own photos; the textures are toned at build time so they sit under type at AA contrast.
+The About section sets the statement beside the site's only colour photo, pink roses laid down like a print with crop marks, over a toned white rose. A toned photo of wild fleabane closes the page above the footer. All three are the owner's own photos; the textures are toned at build time so they sit under type at AA contrast.
 
 The Experience section is a time chart. Bar positions are computed from today's date, so ongoing roles grow over time. The HTML carries positions for October 2026 as the no-JavaScript fallback.
 
@@ -29,8 +29,8 @@ Pushing to `master` runs `.github/workflows/deploy.yml`, which builds the site a
 | --- | --- |
 | `index.html` | All content and markup |
 | `src/boot.ts` | Entry point; loads `main.ts` after first paint |
-| `src/main.ts` | Wires smooth scrolling, the header, the contact form, the footer clock and the motion modules |
-| `src/motion/` | Motion per section: hero (loupe, scroll-out), reveals and texture parallax, about (the print), work (pinned), systems (diagram, count-ups), career (the Experience time chart) |
+| `src/main.ts` | Wires the header, the contact form, the footer clock and the motion modules |
+| `src/motion/` | Motion per section: hero (loupe, scroll-out), reveals and texture parallax, about (the print), work (recordings, posters set near view), systems (diagram, count-ups), career (the Experience time chart) |
 | `src/ui/` | Header and menu, contact form, video controls, footer clock (time in Brampton) |
 | `src/styles/main.css` | All styles, inlined into the page at build time |
 | `public/` | Fonts, images, project recordings, resume, favicon, link preview image |

@@ -1,6 +1,10 @@
+import { base } from '../env';
+
 /**
  * Replaces the native video controls (kept in the HTML for visitors without JS) with one
  * play/pause/replay button. Recordings never loop: each plays once and holds its last frame.
+ * Poster frames are set only as a recording comes within a screen and a half of view, so
+ * they never compete with the first screen; without JS a <noscript> image stands in.
  */
 export interface MediaController {
   video: HTMLVideoElement;
@@ -19,6 +23,7 @@ export function enhanceVideo(video: HTMLVideoElement): MediaController {
   video.removeAttribute('controls');
   video.loop = false;
   const name = video.getAttribute('aria-label') ?? 'recording';
+  loadPosterNear(video);
 
   const button = document.createElement('button');
   button.type = 'button';
@@ -51,6 +56,21 @@ export function enhanceVideo(video: HTMLVideoElement): MediaController {
   });
 
   return { video, play, pause: () => video.pause() };
+}
+
+const posters = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const video = entry.target as HTMLVideoElement;
+      video.poster = base + video.dataset.poster;
+      posters.unobserve(video);
+    });
+  },
+  { rootMargin: '0px 0px 150% 0px' },
+);
+function loadPosterNear(video: HTMLVideoElement) {
+  if (video.dataset.poster && !video.poster) posters.observe(video);
 }
 
 /** Plays a recording once when it is mostly in view, pauses it when it leaves. Returns a stop function. */

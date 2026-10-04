@@ -2,7 +2,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
-import Lenis from 'lenis';
 import { reduceMotion } from './env';
 import { initHeader } from './ui/header';
 import { initContact } from './ui/contact';
@@ -18,23 +17,12 @@ import { loadTextFont } from './fonts';
 gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin);
 loadTextFont();
 
-const root = document.documentElement;
-// Smooth scrolling drives ScrollTrigger from one ticker. Off entirely with reduced motion.
-let lenis: Lenis | null = null;
-if (!reduceMotion) {
-  root.classList.add('motion');
-  lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis!.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
-}
-
-initHeader(lenis);
+initHeader();
 initContact();
 initFooter();
 
 initHero();
-initWork(lenis);
+initWork();
 initSystems();
 initCareer();
 
@@ -44,5 +32,5 @@ if (!reduceMotion) {
   initAbout();
 }
 
-// Line breaks and pin lengths depend on the web fonts; measure again once they are in.
+// Line breaks and trigger positions depend on the web fonts; measure again once they are in.
 document.fonts?.ready.then(() => ScrollTrigger.refresh());

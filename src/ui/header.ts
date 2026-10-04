@@ -1,12 +1,11 @@
-import type Lenis from 'lenis';
-import { q, qa } from '../env';
+import { q, qa, reduceMotion } from '../env';
 
 /**
  * Header behaviour: solid background once scrolled, hidden while reading downward,
- * a disclosure menu on phones, in-page links that scroll (smoothly when Lenis runs)
- * and then move focus to the target, and aria-current on the section in view.
+ * a disclosure menu on phones, in-page links that scroll natively (smoothly unless motion
+ * is reduced) and move focus to the target, and aria-current on the section in view.
  */
-export function initHeader(lenis: Lenis | null) {
+export function initHeader() {
   const header = q('[data-header]');
   const nav = q('[data-nav]');
   const menuButton = q<HTMLButtonElement>('[data-menu-button]');
@@ -21,8 +20,7 @@ export function initHeader(lenis: Lenis | null) {
     else if (up || y < 80) header.classList.remove('is-hidden');
     lastY = y;
   };
-  if (lenis) lenis.on('scroll', ({ scroll }: { scroll: number }) => onScroll(scroll));
-  else addEventListener('scroll', () => onScroll(window.scrollY), { passive: true });
+  addEventListener('scroll', () => onScroll(window.scrollY), { passive: true });
   onScroll(window.scrollY);
   // Never hide the header while focus is inside it.
   header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
@@ -32,13 +30,10 @@ export function initHeader(lenis: Lenis | null) {
     nav.classList.toggle('is-open', open);
     menuButton.setAttribute('aria-expanded', String(open));
     menuButton.querySelector('span')!.textContent = open ? 'Close' : 'Menu';
-    if (open) {
-      lenis?.stop();
-      nav.querySelector<HTMLAnchorElement>('a')?.focus();
-    } else {
-      lenis?.start();
-      if (returnFocus) menuButton.focus();
-    }
+    // The page behind the open menu stays put.
+    document.documentElement.classList.toggle('menu-open', open);
+    if (open) nav.querySelector<HTMLAnchorElement>('a')?.focus();
+    else if (returnFocus) menuButton.focus();
   };
   menuButton.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
   document.addEventListener('keydown', (e) => {
@@ -55,12 +50,10 @@ export function initHeader(lenis: Lenis | null) {
       e.preventDefault();
       if (nav.classList.contains('is-open')) setMenu(false);
       const focusTarget = id === 'top' ? q('#main') : target;
-      const done = () => focusTarget.focus({ preventScroll: true });
-      if (lenis) lenis.scrollTo(id === 'top' ? 0 : target, { duration: 1.2, onComplete: done });
-      else {
-        (id === 'top' ? document.documentElement : target).scrollIntoView({ block: 'start' });
-        done();
-      }
+      const behavior = reduceMotion ? 'auto' : 'smooth';
+      if (id === 'top') window.scrollTo({ top: 0, behavior });
+      else target.scrollIntoView({ block: 'start', behavior });
+      focusTarget.focus({ preventScroll: true });
       history.replaceState(null, '', id === 'top' ? location.pathname + location.search : `#${id}`);
     });
   });
