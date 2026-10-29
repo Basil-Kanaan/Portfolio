@@ -1,4 +1,4 @@
-import { base } from '../env';
+import { base, track } from '../env';
 
 /**
  * Replaces the native video controls (kept in the HTML for visitors without JS) with one
@@ -51,8 +51,11 @@ export function enhanceVideo(video: HTMLVideoElement): MediaController {
   };
 
   button.addEventListener('click', () => {
-    if (video.paused || video.ended) play(video.ended);
-    else video.pause();
+    if (video.paused || video.ended) {
+      const src = video.querySelector('source')?.getAttribute('src') ?? video.currentSrc;
+      track('video_play', { video: src.split('/').pop()?.replace(/\.\w+$/, ''), replay: video.ended });
+      play(video.ended);
+    } else video.pause();
   });
 
   return { video, play, pause: () => video.pause() };

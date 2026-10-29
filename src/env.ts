@@ -12,3 +12,14 @@ export function q<T extends Element = HTMLElement>(selector: string, scope: Pare
 export function qa<T extends Element = HTMLElement>(selector: string, scope: ParentNode = document): T[] {
   return Array.from(scope.querySelectorAll<T>(selector));
 }
+
+declare global {
+  interface Window {
+    track?: (name: string, params?: Record<string, unknown>) => void;
+  }
+}
+
+/** Sends a GA4 event through the snippet in index.html; a no-op when analytics is off. */
+export function track(name: string, params?: Record<string, unknown>) {
+  window.track?.(name, params);
+}

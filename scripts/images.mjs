@@ -54,6 +54,9 @@ async function variants(name, buf, srcWidth, widths, { avifQ = 52, webpQ = 76 } 
 
 await variants('white-rose', await duotone('white-rose.webp', { left: 0, top: 200, width: 1045, height: 1500 }, [150, 142, 130], 3.0), 1045, [560, 1045]);
 
+// The hero portrait: the owner's headshot (400 x 400, no metadata), used as is.
+await variants('portrait', await sharp(path.join(SRC, 'portrait', 'headshot.jpg')).toBuffer(), 400, [400], { avifQ: 60, webpQ: 82 });
+
 // Project captures.
 const caps = path.join(SRC, 'captures');
 for (const slug of ['mczee', 'aonagi', 'cedarvell', 'lorne-mercer', 'qurra', 'areteos']) {

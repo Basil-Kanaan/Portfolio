@@ -1,4 +1,4 @@
-import { q } from '../env';
+import { q, track } from '../env';
 
 /**
  * Web3Forms submission with fetch and inline states. Without JS the form posts normally
@@ -35,6 +35,7 @@ export function initContact() {
       const json = (await res.json().catch(() => ({}))) as { success?: boolean; message?: string };
       if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`);
       form.reset();
+      track('generate_lead', { method: 'contact_form' });
       setStatus("Thanks, your message was sent. I'll reply by email.", 'is-success');
     } catch {
       setStatus('That did not send. Please try again, or email basil.kanaan@alumni.utoronto.ca.', 'is-error');

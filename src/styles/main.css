@@ -328,6 +328,7 @@ html:not(.js) .site-header { position: absolute; }
   align-items: center;
 }
 .hero__copy {
+  --name-mt: clamp(10px, 1.6vh, 20px);
   grid-column: 1 / -1;
   align-self: center;
 }
@@ -337,7 +338,7 @@ html:not(.js) .site-header { position: absolute; }
   color: var(--ash);
 }
 .hero__name {
-  margin: clamp(10px, 1.6vh, 20px) 0 clamp(24px, 4.4vh, 44px);
+  margin: var(--name-mt) 0 clamp(24px, 4.4vh, 44px);
   font-size: var(--fs-name);
   line-height: 1;
   margin-left: -0.04em; /* optical alignment of the B stem with the copy below */
@@ -374,6 +375,46 @@ html:not(.js) .site-header { position: absolute; }
   margin-top: clamp(20px, 3vh, 30px);
 }
 .hero__links .link { font-size: 1rem; }
+
+/* The headshot sits beside the name, square, from the top of "Basil" (the ascenders,
+   0.052em down the drawing) to the baseline of "Kanaan" (1.655em), so its size follows
+   --fs-name. The name keeps its own column; the portrait takes the rest of that row, and
+   max-width keeps it inside it. */
+.hero__portrait { margin: 0; }
+.hero__portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+@media (min-width: 768px) {
+  .hero__copy {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: clamp(32px, 4vw, 80px);
+  }
+  .hero__copy > * { grid-column: 1 / -1; }
+  .hero__copy > .hero__name { grid-column: 1; }
+  .hero__copy > .hero__portrait {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+    font-size: var(--fs-name);
+    width: 1.603em;
+    max-width: 100%;
+    margin-top: calc(var(--name-mt) + 0.052em);
+  }
+}
+/* Phones: a small portrait above the role line. */
+@media (max-width: 767px) {
+  .hero__copy { display: flex; flex-direction: column; }
+  .hero__copy > .hero__portrait {
+    order: -1;
+    width: clamp(96px, 30vw, 128px);
+    margin-bottom: 20px;
+  }
+}
 
 /* The name, drawn from the font's outlines (scripts/hero-name.py). The SVG is in font
    units and sized in em, so it scales with --fs-name. Guides, handles and points keep a
