@@ -65,13 +65,12 @@
         gtag('config', GA_ID, config);
         window.track = function (name, params) { gtag('event', name, params || {}); };
 
-        // Clicks that matter for a cold email: the resume, a direct email, the profiles.
+        // Clicks that matter for a cold email: a direct email, the profiles.
         document.addEventListener('click', function (e) {
           var a = e.target.closest && e.target.closest('a[href]');
           if (!a) return;
           var href = a.getAttribute('href');
-          if (/\.pdf$/i.test(href)) track('resume_open');
-          else if (/^mailto:/i.test(href)) track('email_click');
+          if (/^mailto:/i.test(href)) track('email_click');
           else if (/linkedin\.com/i.test(href)) track('profile_click', { profile: 'linkedin' });
           else if (/github\.com/i.test(href)) track('profile_click', { profile: 'github' });
         });
@@ -127,7 +126,6 @@
             <li><a href="#systems" data-scroll-to>Systems</a></li>
             <li><a href="#experience" data-scroll-to>Experience</a></li>
             <li><a href="#contact" data-scroll-to>Contact</a></li>
-            <li><a class="site-nav__resume" href="/Portfolio/Basil_Kanaan_Resume.pdf">Resume</a></li>
           </ul>
         </nav>
       </div>
@@ -149,7 +147,6 @@
           </figure>
           <p class="hero__avail" data-hero-fade><span class="dot" aria-hidden="true"></span>Taking on client projects, remote or in the Greater Toronto Area</p>
           <ul class="hero__links" aria-label="Links" data-hero-fade>
-            <li><a class="link" href="/Portfolio/Basil_Kanaan_Resume.pdf">Resume (PDF)</a></li>
             <li><a class="link" href="https://github.com/Basil-Kanaan" target="_blank" rel="noopener">GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
             <li><a class="link" href="https://www.linkedin.com/in/basil-kanaan/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
             <li><a class="link" href="mailto:basil.kanaan@alumni.utoronto.ca">Email</a></li>

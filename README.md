@@ -33,7 +33,7 @@ Pushing to `master` runs `.github/workflows/deploy.yml`, which builds the site a
 | `src/motion/` | Motion per section: hero (loupe, scroll-out), reveals and texture parallax, about (statement), work (recordings, posters set near view), systems (diagram, count-ups), career (the Experience time chart) |
 | `src/ui/` | Header and menu, contact form, video controls, footer clock (time in Brampton) |
 | `src/styles/main.css` | All styles, inlined into the page at build time |
-| `public/` | Fonts, images, project recordings, resume, favicon, link preview image |
+| `public/` | Fonts, images, project recordings, favicon, link preview image |
 | `assets-src/` | Source files the scripts below turn into `public/` assets |
 
 ## Asset scripts

@@ -264,11 +264,6 @@ html:not(.js) .site-header { position: absolute; }
   transition: color 0.3s var(--ease-p3);
 }
 .site-nav a:hover, .site-nav a[aria-current='true'] { color: var(--ink); }
-.site-nav .site-nav__resume {
-  color: var(--ink);
-  padding-bottom: 5px;
-  background: linear-gradient(var(--brass), var(--brass)) 0 100% / 100% 1px no-repeat;
-}
 .site-header__menu { display: none; }
 
 @media (max-width: 767px) {
@@ -308,7 +303,6 @@ html:not(.js) .site-header { position: absolute; }
     letter-spacing: var(--heading-track);
     color: var(--ink);
   }
-  html.js .site-nav .site-nav__resume { background: none; color: var(--brass); }
   html:not(.js) .site-header { position: absolute; height: auto; }
   html:not(.js) .site-header__inner { flex-direction: column; align-items: flex-start; padding-block: 16px; }
   html:not(.js) .site-header__menu { display: none; }
